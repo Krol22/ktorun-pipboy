@@ -9,7 +9,7 @@ $primary-color: #2ECFFF;
 * {
 	font-family: 'Inconsolata', monospace;
 	font-weight: 700;
-	font-size: 1.05em;
+	font-size: 1.06em;
 	
 	text-shadow: 0 0 8px $primary-color;
 	color: $primary-color;
@@ -44,7 +44,7 @@ header-component {
 		padding: 0 10px;
 		letter-spacing: 4px;	
 		
-        top: 10px;
+        top: -10px;
 
 		background-color: black;
 		z-index: 1;
@@ -116,24 +116,23 @@ section {
 	li {
 		margin-top: 20px;
 	}
+
+    .item {
+        filter: hue-rotate(340deg);
+    }
 }
 
-section::-webkit-scrollbar {
+.scroll-container::-webkit-scrollbar {
 	width: 3px;
 	background-color: black;
 }
 
-section::-webkit-scrollbar-track {
+.scroll-container::-webkit-scrollbar-track {
 	background-color: black;
 }
 
-section::-webkit-scrollbar-thumb {
-	// background-color: $primary-color;
-	
+.scroll-container::-webkit-scrollbar-thumb {
 	background: linear-gradient(black, $primary-color, black);
-}
-
-section::-webkit-scrollbar-button {
 }
 
 footer-component {

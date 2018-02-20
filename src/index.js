@@ -8,15 +8,16 @@ import { ContactComponent } from './main/contact-component.js';
 import { WorkComponent } from './main/work-component.js';
 
 require('../styles/style.scss');
+require('../styles/skills.scss');
 
 RouterModule.init();
 
-Router.addPath('/', 
+Router.addPath('/skills', 
     {
         text: '<status-component></status-component>'
     }
 );
-Router.addPath('/skills', 
+Router.addPath('/', 
     {
         text: '<skills-component></skills-component>'
     }
