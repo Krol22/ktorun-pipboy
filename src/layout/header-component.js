@@ -34,10 +34,24 @@ export class HeaderComponent extends HTMLElement {
         }
 
         // #TODO: lvlValue and xpValue
+        this._calculateDates();
+    };
+
+    _calculateDates() {
+        var oneDay = 24 * 60 * 60 * 1000;
+        var startWorkDate = new Date(2016, 7, 1);
+        var startLvlDate = new Date(1994, 3, 4);
+        var endDate = new Date();
+
+        var workDaysExp = Math.round((endDate.getTime() - startWorkDate.getTime()) / oneDay);
+        var lvlYearsExp = endDate.getYear() - startLvlDate.getYear();
+
+        this.elements.xpValue.innerHTML = `${ workDaysExp } days`;
+        this.elements.lvlValue.innerHTML = `${ lvlYearsExp }`;
     };
 
     disconnectedCallback() {
 
-    }
+    };
 
 }

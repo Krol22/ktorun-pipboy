@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
 //$primary-color: #1BFF80;
-$primary-color: #2ECFFF;
+$primary-color: #fff;
 //$primary-color: #C0FFFF;
 //$primary-color: #FFB641;
 
@@ -34,70 +34,6 @@ main {
 	width: 800px;
 }
 
-header-component {
-	position: relative;
-	width: 100%;
-	
-	.title {
-		position: absolute;
-		display: inline-block;
-		padding: 0 10px;
-		letter-spacing: 4px;	
-		
-        top: -10px;
-
-		background-color: black;
-		z-index: 1;
-		left: 40px;
-	}
-	
-	ul {
-		display: flex;
-		justify-content: space-between;
-	}
-	
-	li {
-		display: inline-block;
-		border-top: 3px solid $primary-color;
-		height: 35px;
-		
-		padding: 4px 5px;
-		
-		.value {
-			display: inline-block;
-			margin-left: 12px;
-		}
-		
-		.text {
-			display: inline-block;
-		}
-	}	
-	
-	li:nth-child(1) {
-		text-align: right;
-		width: 260px;	
-	}
-	
-	li:nth-child(2) {
-		width: 150px;
-	}
-	
-	li:nth-child(3) {
-		width: 120px;
-	}
-	
-	li:nth-child(4) {
-		width: 170px;	
-	}
-	
-	li:nth-child(n + 2) {
-		display: flex;
-		margin-left: 10px;
-		justify-content: space-between;
-	}
-
-}	
-
 section {
 	margin: 30px 0;
 	height: 400px;
@@ -106,7 +42,6 @@ section {
 	width: 806px;
 
 	overflow-x: auto;
-	direction: rtl;
 	text-align: left;
 	
 	.list {
@@ -117,10 +52,31 @@ section {
 		margin-top: 20px;
 	}
 
-    .item {
-        filter: hue-rotate(340deg);
+}
+
+color-change-component {
+    font-size: 1.3em;
+    text-align: center;
+
+    position: absolute;
+    bottom: 10px;
+
+    div {
+        cursor: pointer;
+        display: inline-block;
+        padding: 10px;
+    }
+
+    div:before {
+        content: '[ ';
+    }
+
+    div:after {
+        content: ' ]';
     }
 }
+
+/* Scroll styling */
 
 .scroll-container::-webkit-scrollbar {
 	width: 3px;
@@ -133,33 +89,6 @@ section {
 
 .scroll-container::-webkit-scrollbar-thumb {
 	background: linear-gradient(black, $primary-color, black);
-}
-
-footer-component {
-    display: inline-block;
-	border-bottom: 3px solid $primary-color;
-	height: 35px;
-	width: 100%;
-	
-	.list {
-		position: absolute;
-		bottom: -25px;
-		display: flex;
-		justify-content: space-around;
-		width: 100%;
-	}
-	
-	router-link {
-		display: inline-block;
-		background-color: black;
-		padding: 10px 20px;
-        border: 3px solid black;
-        cursor: pointer;
-	}
-	
-	router-link.active {
-		border: 3px solid;
-	}
 }
 
 /* crt */

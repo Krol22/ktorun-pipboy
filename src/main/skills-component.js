@@ -37,11 +37,19 @@ export class SkillsComponent extends HTMLElement {
 
         this.elements.list.addEventListener('click', e => {
             var selectedItem = e.path[0];  
+
             if(selectedItem.nodeName !== 'LI') {
                 return false; 
             }
+            this._setActiveItem(selectedItem);
             this._renderSelectedItem(selectedItem);
         });
+
+
+        var defaultSelectedItem = this.elements.list.children[0];
+
+        this._setActiveItem(defaultSelectedItem);
+        this._renderSelectedItem(defaultSelectedItem);
     }
 
     _renderSelectedItem(selectedItem) {
@@ -52,6 +60,17 @@ export class SkillsComponent extends HTMLElement {
                 NO TEXT AVAILABLE FOR THIS ITEM (${selectedItemValue})...
             </p>
         `;
+    }
+
+    _setActiveItem(selectedItem) {
+        var currentActiveElement = this.elements.list.querySelector('.active');
+        if(currentActiveElement) {
+            currentActiveElement.classList.remove('active');
+        }
+
+        console.log(currentActiveElement);
+
+        selectedItem.classList.add('active');
     }
 
     disconnectedCallback() {

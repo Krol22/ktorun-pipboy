@@ -4,10 +4,10 @@ export class FooterComponent extends HTMLElement {
         super();
         this.template = `
             <div class="list">
-                <router-link [link]="/">Status</router-link>
-                <router-link class="active" [link]="/skills">Skills</router-link>
+                <router-link  [link]="/contact">Status</router-link>
+                <router-link [link]="/status">Skills</router-link>
                 <router-link [link]="/work">Work</router-link>
-                <router-link [link]="/contact">Contact</router-link>
+                <router-link class="active" [link]="/">Contact</router-link>
             </div>
         `;
     }

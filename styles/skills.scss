@@ -4,7 +4,9 @@ skills-component {
     
     display: flex;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    flex-direction: row;
+
+    font-size: 0.9em;
 
     .list {
         position: relative;
@@ -17,6 +19,17 @@ skills-component {
         overflow-y: scroll;
         height: 400px;
         list-style-type: unset;
+
+        li {
+            border: 3px solid black;
+            margin: 0;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .active {
+            border: 3px solid $primary-color;
+        }
     }
 
     .item {

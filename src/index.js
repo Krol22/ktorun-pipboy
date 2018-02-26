@@ -6,9 +6,13 @@ import { SkillsComponent } from './main/skills-component.js';
 import { StatusComponent } from './main/status-component.js';
 import { ContactComponent } from './main/contact-component.js';
 import { WorkComponent } from './main/work-component.js';
+import { ColorChangeComponent } from './main/color-change-component.js';
 
 require('../styles/style.scss');
 require('../styles/skills.scss');
+require('../styles/contact.scss');
+require('../styles/footer.scss');
+require('../styles/header.scss');
 
 RouterModule.init();
 
@@ -17,7 +21,7 @@ Router.addPath('/skills',
         text: '<status-component></status-component>'
     }
 );
-Router.addPath('/', 
+Router.addPath('/status', 
     {
         text: '<skills-component></skills-component>'
     }
@@ -27,7 +31,7 @@ Router.addPath('/work',
         text: '<work-component></work-component>'
     }
 );
-Router.addPath('/contact', 
+Router.addPath('/', 
     {
         text: '<contact-component></contact-component>'
     }
@@ -41,3 +45,4 @@ customElements.define('skills-component', SkillsComponent);
 customElements.define('status-component', StatusComponent);
 customElements.define('contact-component', ContactComponent);
 customElements.define('work-component', WorkComponent);
+customElements.define('color-change-component', ColorChangeComponent);
