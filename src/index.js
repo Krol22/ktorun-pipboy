@@ -8,6 +8,8 @@ import { ContactComponent } from './main/contact-component.js';
 import { WorkComponent } from './main/work-component.js';
 import { ColorChangeComponent } from './main/color-change-component.js';
 
+import { SoundService } from './sound/sound.service.js';
+
 require('../styles/style.scss');
 require('../styles/skills.scss');
 require('../styles/contact.scss');
@@ -38,6 +40,8 @@ Router.addPath('/',
 );
 
 Router.goTo('/');
+
+SoundService.init();
 
 customElements.define('header-component', HeaderComponent);
 customElements.define('footer-component', FooterComponent);

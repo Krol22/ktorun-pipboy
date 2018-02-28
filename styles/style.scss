@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
-//$primary-color: #1BFF80;
 $primary-color: #fff;
-//$primary-color: #C0FFFF;
-//$primary-color: #FFB641;
-
+$secondary-color: #111;
 
 * {
 	font-family: 'Inconsolata', monospace;
@@ -18,20 +15,31 @@ $primary-color: #fff;
     margin: 0;
 }
 
+html {
+    background-color: white;
+}
+
 html, body {
 	height: 100%;
     overflow-y: hidden;
 }
 
+.container {
+    width: 100%;
+}
+
 body {
-	background-color: black;
 	display: flex;
 	justify-content: center;
 	padding-top: 100px;
+
+	background-color: $secondary-color;
 }
 
 main {
 	width: 800px;
+	background-color: $secondary-color;
+
 }
 
 section {
@@ -53,6 +61,21 @@ section {
 	}
 
 }
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: auto;
+    cursor: pointer;
+    background-color: $secondary-color;
+    border: 3px solid $secondary-color;
+}
+
+.active, .highlight {
+    border: 3px solid;
+    background-color: #222;
+}
+
 
 color-change-component {
     font-size: 1.3em;
@@ -80,15 +103,15 @@ color-change-component {
 
 .scroll-container::-webkit-scrollbar {
 	width: 3px;
-	background-color: black;
+	background-color: $secondary-color;
 }
 
 .scroll-container::-webkit-scrollbar-track {
-	background-color: black;
+	background-color: $secondary-color;
 }
 
 .scroll-container::-webkit-scrollbar-thumb {
-	background: linear-gradient(black, $primary-color, black);
+	background: linear-gradient($secondary-color, $primary-color, $secondary-color);
 }
 
 /* crt */

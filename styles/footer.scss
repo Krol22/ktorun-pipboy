@@ -13,16 +13,4 @@ footer-component {
 		justify-content: space-around;
 		width: 100%;
 	}
-	
-	router-link {
-		display: inline-block;
-		background-color: black;
-		padding: 10px 20px;
-        border: 3px solid black;
-        cursor: pointer;
-	}
-	
-	router-link.active {
-		border: 3px solid;
-	}
 }

@@ -1,3 +1,5 @@
+import { SoundService } from '../sound/sound.service.js';
+
 export class ColorChangeComponent extends HTMLElement {
 
     constructor() {
@@ -21,29 +23,37 @@ export class ColorChangeComponent extends HTMLElement {
             btn4: this.querySelector('#color_4')
         };
 
-        this.pageElement = document.querySelector('main');
-        this.pageElement.style.color = '#fff';
+        this.pageElement = document.querySelector('body');
+        console.log(this.pageElement);
 
         this.elements.btn1.addEventListener('click', () => {
             this.pageElement.style.filter = '';
+            SoundService.play('mode');
+            localStorage.setItem('color', 'white');
         });
 
         this.elements.btn2.addEventListener('click', () => {
             this.pageElement.style.filter = `
                 brightness(50%) sepia(1) hue-rotate(109deg) saturate(984.5%) brightness(104.5%)
             `;
+            SoundService.play('mode');
+            localStorage.setItem('color', 'green');
         });
 
         this.elements.btn3.addEventListener('click', () => {
             this.pageElement.style.filter = `
                 brightness(50%) sepia(1) hue-rotate(1deg) saturate(334.5%) brightness(118%)
             `;
+            SoundService.play('mode');
+            localStorage.setItem('color', 'tan');
         });
 
         this.elements.btn4.addEventListener('click', () => {
             this.pageElement.style.filter = `
                 brightness(50%) sepia(1) hue-rotate(156deg) saturate(334.5%) brightness(113%)
             `;
+            SoundService.play('mode');
+            localStorage.setItem('color', 'blue');
         });
     }
 

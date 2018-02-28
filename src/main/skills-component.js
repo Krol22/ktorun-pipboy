@@ -1,3 +1,5 @@
+import { SoundService } from '../sound/sound.service.js';
+
 const skills = [
     { name: 'JS', value: 'js' },
     { name: 'AnguarJS', value: 'angularJs' },
@@ -43,8 +45,9 @@ export class SkillsComponent extends HTMLElement {
             }
             this._setActiveItem(selectedItem);
             this._renderSelectedItem(selectedItem);
-        });
 
+            SoundService.play('highlight');
+        });
 
         var defaultSelectedItem = this.elements.list.children[0];
 
@@ -67,8 +70,6 @@ export class SkillsComponent extends HTMLElement {
         if(currentActiveElement) {
             currentActiveElement.classList.remove('active');
         }
-
-        console.log(currentActiveElement);
 
         selectedItem.classList.add('active');
     }

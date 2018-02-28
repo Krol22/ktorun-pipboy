@@ -30,6 +30,9 @@ module.exports = {
                     }],
                     fallback: 'style-loader'
                 })
+        },  {
+            test: /\.wav$/,
+            use: 'file-loader'
         }]
     },
     plugins: [

@@ -1,13 +1,15 @@
+import { SoundService } from '../sound/sound.service.js';
+
 export class FooterComponent extends HTMLElement {
 
     constructor() {
         super();
         this.template = `
             <div class="list">
-                <router-link  [link]="/contact">Status</router-link>
-                <router-link [link]="/status">Skills</router-link>
-                <router-link [link]="/work">Work</router-link>
-                <router-link class="active" [link]="/">Contact</router-link>
+                <router-link class="button" [link]="/contact">Status</router-link>
+                <router-link class="button" [link]="/status">Skills</router-link>
+                <router-link class="button" [link]="/work">Work</router-link>
+                <router-link class="button active" [link]="/">Contact</router-link>
             </div>
         `;
     }
@@ -16,8 +18,6 @@ export class FooterComponent extends HTMLElement {
         this.innerHTML = this.template;
 
         this.list = this.querySelector('.list');
-
-        console.dir(this.list);
 
         this.list.addEventListener('click', (e) => {
             if(e.srcElement.nodeName === 'ROUTER-LINK') {
@@ -28,6 +28,7 @@ export class FooterComponent extends HTMLElement {
                         routerNode.classList.remove('active');
                     });
 
+                SoundService.play('select');
                 e.srcElement.classList.add('active');
             }
         });

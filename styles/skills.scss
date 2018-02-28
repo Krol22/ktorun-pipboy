@@ -21,15 +21,16 @@ skills-component {
         list-style-type: unset;
 
         li {
-            border: 3px solid black;
             margin: 0;
             padding: 10px 15px;
             cursor: pointer;
+            border: 3px solid #111;
         }
 
         .active {
-            border: 3px solid $primary-color;
+            border: 3px solid;
         }
+
     }
 
     .item {
@@ -43,7 +44,7 @@ skills-component {
         }
 
         p {
-            border-top: 3px solid $primary-color;
+            border-top: 3px solid;
             padding: 10px 0;
             overflow-y: visible;
             height: 20px;
