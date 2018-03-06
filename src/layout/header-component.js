@@ -33,7 +33,6 @@ export class HeaderComponent extends HTMLElement {
             xpValue: this.querySelector('.xp span.value'),
         }
 
-        // #TODO: lvlValue and xpValue
         this._calculateDates();
     };
 
@@ -44,10 +43,10 @@ export class HeaderComponent extends HTMLElement {
         var endDate = new Date();
 
         var workDaysExp = Math.round((endDate.getTime() - startWorkDate.getTime()) / oneDay);
-        var lvlYearsExp = endDate.getYear() - startLvlDate.getYear();
+        var lvlYears = endDate.getYear() - startLvlDate.getYear();
 
         this.elements.xpValue.innerHTML = `${ workDaysExp } days`;
-        this.elements.lvlValue.innerHTML = `${ lvlYearsExp }`;
+        this.elements.lvlValue.innerHTML = `${ lvlYears }`;
     };
 
     disconnectedCallback() {

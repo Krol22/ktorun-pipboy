@@ -24,7 +24,9 @@ export class ColorChangeComponent extends HTMLElement {
         };
 
         this.pageElement = document.querySelector('body');
-        console.log(this.pageElement);
+        this.pageElement.style.filter = `
+            brightness(50%) sepia(1) hue-rotate(109deg) saturate(984.5%) brightness(104.5%)
+        `;
 
         this.elements.btn1.addEventListener('click', () => {
             this.pageElement.style.filter = '';

@@ -1,0 +1,21 @@
+status-component {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container {
+    text-align: center;
+    flex: 3;
+    
+    .image {
+        width: 350px;
+    }
+
+    .status-text {
+        line-height: 1.3; 
+    }
+
+    .name {
+        display: block;
+    }
+}

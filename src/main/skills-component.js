@@ -8,6 +8,7 @@ const skills = [
     { name: 'HTML 5', value: 'html' },
     { name: 'CSS 3', value: 'css' },
     { name: 'Build tools', value: 'tools' },
+    { name: 'Tests', value: 'tests' },
     { name: 'Web Components', value: 'webComponents' },
     { name: 'VIM', value: 'vim' },
     { name: 'MySQL', value: 'mySql' }
@@ -58,7 +59,10 @@ export class SkillsComponent extends HTMLElement {
     _renderSelectedItem(selectedItem) {
         var selectedItemValue = selectedItem.attributes['data-value'].value;
         this.elements.selectedItem.innerHTML = `
-            <h3>ICON - ${selectedItemValue}</h3>
+            <figure class="skill-icon">
+                <img class="dev-icon" src="/assets-kopia/${selectedItemValue}.png" />
+            </figure>
+
             <p class="item-text ps-right-top-to-bottom">
                 NO TEXT AVAILABLE FOR THIS ITEM (${selectedItemValue})...
             </p>
