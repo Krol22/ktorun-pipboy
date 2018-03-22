@@ -6,7 +6,7 @@ var RouterModule = {
         Router.init();
         customElements.define('router-link', RouterLink);
     }
-}
+};
 
 export {
     RouterModule,

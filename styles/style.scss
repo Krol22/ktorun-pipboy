@@ -71,6 +71,7 @@ section {
     cursor: pointer;
     background-color: $secondary-color;
     border: 3px solid $secondary-color;
+    user-select: none;
 }
 
 .active, .highlight {
@@ -79,7 +80,7 @@ section {
 }
 
 
-color-change-component {
+page-footer-component {
     font-size: 1.3em;
     text-align: center;
 
@@ -88,6 +89,7 @@ color-change-component {
 
     div {
         cursor: pointer;
+        user-select: none;
         display: inline-block;
         padding: 10px;
     }

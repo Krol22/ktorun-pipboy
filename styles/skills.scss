@@ -37,12 +37,19 @@ skills-component {
 
         p {
             border-top: 3px solid;
-            padding: 10px 0;
+            padding: 10px 0px;
+            line-height: 1.3;
             overflow-y: visible;
             height: 20px;
-            width: calc(100% - 3px);
+            width: calc(100% - 13px);
             z-index: 2;
             display: inline-block;
+
+            text-align: justify;
+        }
+
+        .item-text {
+            padding-right: 10px;
         }
 
         .skill-icon {

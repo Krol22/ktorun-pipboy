@@ -1,6 +1,6 @@
 import { SoundService } from '../sound/sound.service.js';
 
-export class ColorChangeComponent extends HTMLElement {
+export class PageFooterComponent extends HTMLElement {
 
     constructor() {
         super();

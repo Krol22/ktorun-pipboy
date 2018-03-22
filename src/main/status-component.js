@@ -23,7 +23,7 @@ export class StatusComponent extends HTMLElement {
         var endDate = new Date();
         var startDate = new Date(1994, 3, 4);
 
-        var lvlYears = endDate.getYear() - startLvlDate.getYear();
+        var lvlYears = endDate.getYear() - startDate.getYear();
 
         this.querySelector('#level').innerHTML = `${lvlYears}`;
     }

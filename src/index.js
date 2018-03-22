@@ -2,10 +2,11 @@ import { Router, RouterModule } from './router/router-module.js';
 
 import { HeaderComponent } from './layout/header-component.js';
 import { FooterComponent } from './layout/footer-component.js';
+import { PageFooterComponent } from './layout/page-footer-component.js';
+
 import { SkillsComponent } from './main/skills-component.js';
 import { StatusComponent } from './main/status-component.js';
 import { ContactComponent } from './main/contact-component.js';
-import { ColorChangeComponent } from './main/color-change-component.js';
 
 import { SoundService } from './sound/sound.service.js';
 
@@ -43,4 +44,4 @@ customElements.define('footer-component', FooterComponent);
 customElements.define('skills-component', SkillsComponent);
 customElements.define('status-component', StatusComponent);
 customElements.define('contact-component', ContactComponent);
-customElements.define('color-change-component', ColorChangeComponent);
+customElements.define('page-footer-component', PageFooterComponent);

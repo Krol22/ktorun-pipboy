@@ -29,7 +29,7 @@ export const Router = {
 
         this.currentLocation = route; 
 
-        window.history.pushState({ url: path }, '', path);
+        window.history.pushState({ url: path }, '', '#' + path);
 
         if(this.routes[route.path].resolve){
             this.currentLocation.resolve = {};

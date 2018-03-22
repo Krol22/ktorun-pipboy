@@ -1,17 +1,78 @@
 import { SoundService } from '../sound/sound.service.js';
+import jsImg from '../../assets/images/js.png';
+import angularImg from '../../assets/images/angular.png';
+import angularJsImg from '../../assets/images/angularjs.png';
+import kendoUiImg from '../../assets/images/kendo.png';
+import htmlImg from '../../assets/images/html.png';
+import cssImg from '../../assets/images/css.png';
+import toolsImg from '../../assets/images/tools.png';
+import testsImg from '../../assets/images/tests.png';
+import webComponentsImg from '../../assets/images/webComponents.png';
+import vimImg from '../../assets/images/vim.png';
+import sqlImg from '../../assets/images/sql.png';
+import otherImg from '../../assets/images/other.png';
 
 const skills = [
-    { name: 'JS', value: 'js' },
-    { name: 'AnguarJS', value: 'angularJs' },
-    { name: 'Angular', value: 'angular' },
-    { name: 'Kendo UI', value: 'kendo' },
-    { name: 'HTML 5', value: 'html' },
-    { name: 'CSS 3', value: 'css' },
-    { name: 'Build tools', value: 'tools' },
-    { name: 'Tests', value: 'tests' },
-    { name: 'Web Components', value: 'webComponents' },
-    { name: 'VIM', value: 'vim' },
-    { name: 'MySQL', value: 'mySql' }
+    { 
+        name: 'JS', 
+        img: jsImg,
+        text: 'Main and favorite language that I use in work and daily projects.'
+    },
+    { 
+        name: 'AngularJS', 
+        img: angularJsImg,
+        text: 'First framework (ver. 1.6) I was learning during my initial project at work. You can check some of components I\'ve created on my Github page.',
+    },
+    { 
+        name: 'Angular', 
+        img: angularImg,
+        text: 'In small team we have created an inner order management system for bakery. More about it in my LinkedIn account.'
+    },
+    { 
+        name: 'Kendo UI', 
+        img: kendoUiImg,
+        text: 'Library used with JQuery in main project in my current work. I have used most of UI Components from library (exept Charts components).'
+    },
+    { 
+        name: 'HTML 5', 
+        img: htmlImg,
+        text: 'I know about semantic new elements, new form attribute types, canvas, audio. Also I was working with Geolocation, Localstorage and Cache API of HTML5.'
+    },
+    { 
+        name: 'CSS 3', 
+        img: cssImg,
+        text: 'Best things I know about CSS are transitions, animations and RWD with grid and flexbox. Now I\'m learning about preprocessors.'
+    },
+    { 
+        name: 'Build tools', 
+        img: toolsImg,
+        text: 'When I was starting my adventure with JS projects I worked with grunt and gulp. Now I basically use webpack for everything.'
+    },
+    { 
+        name: 'Tests', 
+        img: testsImg,
+        text: 'Karma runner + Jasmine and PhantomJS. In work project I use Jasmine with Chutzpah test runner (not the best but it works).'
+    },
+    { 
+        name: 'Web Components', 
+        img: webComponentsImg,
+        text: 'This page is written with use only of custom elements. Love this technology, and I want to use it more in other projects.'
+    },
+    { 
+        name: 'VIM', 
+        img: vimImg,
+        text: 'BEST, EDITOR, EVER (specially in VSCode with Vim extension)'
+        },
+    { 
+        name: 'SQL', 
+        img: sqlImg,
+        text: 'Most of databases I have used were SQL db.'
+    },
+    { 
+        name: 'Other', 
+        img: otherImg,
+        text: `Other skills not mentioned earlier: Agile, Git, Jira, Trello, VSTS, basic Java and C# ( I worked in project with API written in those languages )` 
+    }
 ];
 
 export class SkillsComponent extends HTMLElement {
@@ -22,7 +83,7 @@ export class SkillsComponent extends HTMLElement {
         this.template = `
             <div class="list scroll-container">
                 <ul id="list">
-                    ${skills.map(skill => `<li data-value="${skill.value}">${skill.name}</li>`).join('')}
+                    ${skills.map(skill => `<li data-name="${skill.name}">${skill.name}</li>`).join('')}
                 </ul>
             </div>
             <div id="selected-item-details" class="item">
@@ -36,7 +97,7 @@ export class SkillsComponent extends HTMLElement {
         this.elements = {
             list: this.querySelector('#list'),
             selectedItem: this.querySelector('#selected-item-details')
-        }
+        };
 
         this.elements.list.addEventListener('click', e => {
             var selectedItem = e.path[0];  
@@ -57,14 +118,17 @@ export class SkillsComponent extends HTMLElement {
     }
 
     _renderSelectedItem(selectedItem) {
-        var selectedItemValue = selectedItem.attributes['data-value'].value;
+        var selectedItem = skills.find(skill => {
+            return skill.name === selectedItem.attributes['data-name'].value;
+        });
+
         this.elements.selectedItem.innerHTML = `
             <figure class="skill-icon">
-                <img class="dev-icon" src="/assets-kopia/${selectedItemValue}.png" />
+                <img class="dev-icon" src="${selectedItem.img}" />
             </figure>
 
             <p class="item-text ps-right-top-to-bottom">
-                NO TEXT AVAILABLE FOR THIS ITEM (${selectedItemValue})...
+                ${selectedItem.text}
             </p>
         `;
     }
