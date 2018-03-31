@@ -10,7 +10,7 @@ import { ContactComponent } from './main/contact-component.js';
 
 import { SoundService } from './sound/sound.service.js';
 
-// require('../styles/main.scss');
+require('../styles/main.scss');
 
 RouterModule.init();
 

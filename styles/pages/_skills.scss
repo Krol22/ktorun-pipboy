@@ -45,6 +45,6 @@
     &__text {
         padding: 1rem .5rem 0 .5rem;
         text-align: justify;
-        border-top: $border-width solid transparent;
+        border-top: $border-width solid $color-white;
     }
 }
