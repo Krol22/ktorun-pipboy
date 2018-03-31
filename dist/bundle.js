@@ -220,7 +220,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-// require('../styles/main.scss');
+__webpack_require__(27);
 
 __WEBPACK_IMPORTED_MODULE_0__router_router_module_js__["b" /* RouterModule */].init();
 
@@ -668,7 +668,7 @@ class SkillsComponent extends HTMLElement {
 
         this.elements.selectedItem.innerHTML = `
             <figure class="skills__icon">
-                <img class="skills__icon-image" src="${selectedSkill.img}" />
+                <img class="skills__icon-image" src=".${selectedSkill.img}" />
             </figure>
 
             <figcaption class="skills__text u-right-top-to-bottom">
@@ -860,6 +860,12 @@ class ContactComponent extends HTMLElement {
 /* harmony export (immutable) */ __webpack_exports__["a"] = ContactComponent;
 
 
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

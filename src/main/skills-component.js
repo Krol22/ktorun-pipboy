@@ -126,7 +126,7 @@ export class SkillsComponent extends HTMLElement {
 
         this.elements.selectedItem.innerHTML = `
             <figure class="skills__icon">
-                <img class="skills__icon-image" src="${selectedSkill.img}" />
+                <img class="skills__icon-image" src=".${selectedSkill.img}" />
             </figure>
 
             <figcaption class="skills__text u-right-top-to-bottom">
