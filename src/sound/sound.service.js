@@ -7,9 +7,10 @@ export const SoundService = {
     init() {
         this.enabled = ('true' === localStorage.getItem('soundEnabled'));
         this.sounds =  {
-            select: new Audio(pipboySelect),
-            highlight: new Audio(pipboyHighlight),
-            mode: new Audio(pipboyMode)
+            // '.' - added for production support of static files, problem with finding them on production.
+            select: new Audio('.' + pipboySelect),
+            highlight: new Audio('.' + pipboyHighlight),
+            mode: new Audio('.' + pipboyMode)
         };
     },
 

@@ -83,9 +83,10 @@ const SoundService = {
     init() {
         this.enabled = ('true' === localStorage.getItem('soundEnabled'));
         this.sounds =  {
-            select: new Audio(__WEBPACK_IMPORTED_MODULE_0__assets_sounds_pipboy_ui_pipboy_select_wav___default.a),
-            highlight: new Audio(__WEBPACK_IMPORTED_MODULE_1__assets_sounds_pipboy_ui_pipboy_highlight_wav___default.a),
-            mode: new Audio(__WEBPACK_IMPORTED_MODULE_2__assets_sounds_pipboy_ui_pipboy_mode_wav___default.a)
+            // '.' - added for production support of static files, problem with finding them on production.
+            select: new Audio('.' + __WEBPACK_IMPORTED_MODULE_0__assets_sounds_pipboy_ui_pipboy_select_wav___default.a),
+            highlight: new Audio('.' + __WEBPACK_IMPORTED_MODULE_1__assets_sounds_pipboy_ui_pipboy_highlight_wav___default.a),
+            mode: new Audio('.' + __WEBPACK_IMPORTED_MODULE_2__assets_sounds_pipboy_ui_pipboy_mode_wav___default.a)
         };
     },
 
@@ -784,7 +785,7 @@ class StatusComponent extends HTMLElement {
 
         this.template = `
             <section class="status">
-                <img class="status__image" src=${__WEBPACK_IMPORTED_MODULE_0__assets_images_stats_main_100_png___default.a} />
+                <img class="status__image" src=".${__WEBPACK_IMPORTED_MODULE_0__assets_images_stats_main_100_png___default.a}" />
                 <div class="status__text">
                     <h2 class="heading-secondary u-margin-bottom">
                         Karol Toruń

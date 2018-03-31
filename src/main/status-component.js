@@ -8,7 +8,7 @@ export class StatusComponent extends HTMLElement {
 
         this.template = `
             <section class="status">
-                <img class="status__image" src=${statusImg} />
+                <img class="status__image" src=".${statusImg}" />
                 <div class="status__text">
                     <h2 class="heading-secondary u-margin-bottom">
                         Karol Toruń
