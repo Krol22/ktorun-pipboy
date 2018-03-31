@@ -1,0 +1,42 @@
+.header {
+    position: relative;
+    margin-bottom: 3rem;
+
+    &__title {
+        position: absolute;
+        padding: 0 1rem;
+        letter-spacing: .5rem;
+
+        top: -1rem;
+
+        background-color: $color-black;
+        z-index: 2;
+        left: 4rem;
+    }
+}
+
+.header-list {
+    display: flex;
+    justify-content: space-between;
+
+    &__value {
+        float: right;
+        margin-left: 1.5rem;
+    }
+
+    &__item {
+        display: inline-block;
+        border-top: $border-width solid $color-white;
+        height: 3.5rem;
+        padding: .4rem .5rem;
+ 
+        &--lvl {
+            text-align: right;
+            width: 37%;
+        }
+
+        &--hp { width: 21%; }
+        &--ap { width: 17%; }
+        &--xp { width: 20%; }
+    }
+}

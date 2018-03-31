@@ -1,0 +1,9 @@
+.status {
+    text-align: center;
+    height: $section-height;
+
+    &__image {
+        width: 50%;
+        margin-bottom: 3rem;
+    }
+}

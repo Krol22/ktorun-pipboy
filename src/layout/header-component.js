@@ -4,34 +4,36 @@ export class HeaderComponent extends HTMLElement {
         super();
 
         this.template = `
-            <div class="title">STATS</div>
-            <ul>
-                <li class="lvl ps-top-to-bottom">
-                    <span class="text">LVL</span>
-                    <span class="value">24</span>
-                </li>
-                <li class="hp ps-right-top-to-bottom">
-                    <span class="text">HP</span>
-                    <span class="value">220/220</span>
-                </li>
-                <li class="ap ps-right-top-to-bottom">
-                    <span class="text">AP</span>
-                    <span class="value">75/75</span>
-                </li>
-                <li class="xp ps-right-top-to-bottom">
-                    <span class="text">XP</span>
-                    <span class="value">600 days</span>
-                </li>
-            </ul>
+            <header class="header">
+                <div class="header__title">STATS</div>
+                <ul class="header-list">
+                    <li class="header-list__item header-list__item--lvl u-top-to-bottom">
+                        <span class="header-list__text">LVL</span>
+                        <span id="lvl-value" class="header-list__value">24</span>
+                    </li>
+                    <li class="header-list__item header-list__item--hp u-right-top-to-bottom">
+                        <span class="header-list__text">HP</span>
+                        <span class="header-list__value">220/220</span>
+                    </li>
+                    <li class="header-list__item header-list__item--ap u-right-top-to-bottom">
+                        <span class="header-list__text">AP</span>
+                        <span class="header-list__value">75/75</span>
+                    </li>
+                    <li class="header-list__item header-list__item--xp u-right-top-to-bottom">
+                        <span class="header-list__text">XP</span>
+                        <span id="xp-value" class="header-list__value">100 days</span>
+                    </li>
+                </ul>
+            </header>
         `;
     }
 
     connectedCallback() {
         this.innerHTML = this.template;
         this.elements = {
-            lvlValue: this.querySelector('.lvl span.value'),
-            xpValue: this.querySelector('.xp span.value'),
-        }
+            lvlValue: this.querySelector('#lvl-value'),
+            xpValue: this.querySelector('#xp-value'),
+        };
 
         this._calculateDates();
     };

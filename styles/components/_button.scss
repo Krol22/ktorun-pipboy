@@ -1,0 +1,22 @@
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: auto;
+    cursor: pointer;
+    background-color: $color-black;
+    border: $border-width solid transparent;
+    user-select: none;
+
+    // defaulting <button> element
+
+    outline: none;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+
+    &--active {
+        border-color: $color-white;
+    }
+}

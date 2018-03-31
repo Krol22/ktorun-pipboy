@@ -5,31 +5,32 @@ export class FooterComponent extends HTMLElement {
     constructor() {
         super();
         this.template = `
-            <div class="list">
-                <router-link class="button active" [link]="/">Status</router-link>
-                <router-link class="button" [link]="/skills">S.K.I.L.L.S</router-link>
-                <router-link class="button" [link]="/contact">Contact</router-link>
-            </div>
+            <footer class="pipboy-footer">
+                <div class="pipboy-footer__list u-bottom-to-top">
+                    <router-link id="status-btn" class="pipboy-footer__item btn btn--active" [link]="/">Status</router-link>
+                    <router-link id="skills-btn" class="pipboy-footer__item btn" [link]="/skills">S.K.I.L.L.S</router-link>
+                    <router-link id="contact-btn" class="pipboy-footer__item btn" [link]="/contact">Contact</router-link>
+                </div>
+            </footer>
         `;
     }
 
     connectedCallback() {
         this.innerHTML = this.template;
 
-        this.list = this.querySelector('.list');
+        this.buttons = [
+            this.querySelector('#status-btn'),
+            this.querySelector('#skills-btn'),
+            this.querySelector('#contact-btn')
+        ];
 
-        this.list.addEventListener('click', (e) => {
-            if(e.srcElement.nodeName === 'ROUTER-LINK') {
-                Array.from(this.list.childNodes)
-                    .filter(node => 
-                        node.nodeName === 'ROUTER-LINK'
-                    ).forEach(routerNode => {
-                        routerNode.classList.remove('active');
-                    });
+        this.buttons.forEach(button => {
+            button.addEventListener('click', e => {
+                this.buttons.forEach(btn => btn.classList.remove('btn--active'));
+                button.classList.add('btn--active');
 
                 SoundService.play('select');
-                e.srcElement.classList.add('active');
-            }
+            });
         });
     }
 

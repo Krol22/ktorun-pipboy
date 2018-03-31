@@ -41,7 +41,7 @@ const skills = [
     { 
         name: 'CSS 3', 
         img: cssImg,
-        text: 'Best things I know about CSS are transitions, animations and RWD with grid and flexbox. Now I\'m learning about preprocessors.'
+        text: 'Best things I know about CSS are transitions, animations and RWD with grid and flexbox. Now I\'m learning about preprocessors and BEM.'
     },
     { 
         name: 'Build tools', 
@@ -81,13 +81,15 @@ export class SkillsComponent extends HTMLElement {
         super();
 
         this.template = `
-            <div class="list scroll-container">
-                <ul id="list">
-                    ${skills.map(skill => `<li data-name="${skill.name}">${skill.name}</li>`).join('')}
-                </ul>
-            </div>
-            <div id="selected-item-details" class="item">
-            </div>
+            <section class="skills">
+                <div class="skills__list u-scroll-container">
+                    <ul id="list">
+                        ${skills.map(skill => `<li class="skills__list-item" data-name="${skill.name}">${skill.name}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="skills__details" class="item">
+                </div>
+            </section>
         `;
     }
 
@@ -96,7 +98,7 @@ export class SkillsComponent extends HTMLElement {
 
         this.elements = {
             list: this.querySelector('#list'),
-            selectedItem: this.querySelector('#selected-item-details')
+            selectedItem: this.querySelector('.skills__details')
         };
 
         this.elements.list.addEventListener('click', e => {
@@ -118,28 +120,28 @@ export class SkillsComponent extends HTMLElement {
     }
 
     _renderSelectedItem(selectedItem) {
-        var selectedItem = skills.find(skill => {
+        var selectedSkill = skills.find(skill => {
             return skill.name === selectedItem.attributes['data-name'].value;
         });
 
         this.elements.selectedItem.innerHTML = `
-            <figure class="skill-icon">
-                <img class="dev-icon" src="${selectedItem.img}" />
+            <figure class="skills__icon">
+                <img class="skills__icon-image" src="${selectedSkill.img}" />
             </figure>
 
-            <p class="item-text ps-right-top-to-bottom">
-                ${selectedItem.text}
-            </p>
+            <figcaption class="skills__text u-right-top-to-bottom">
+                ${selectedSkill.text}
+            </figcaption>
         `;
     }
 
     _setActiveItem(selectedItem) {
-        var currentActiveElement = this.elements.list.querySelector('.active');
+        var currentActiveElement = this.elements.list.querySelector('.skills__list-item--active');
         if(currentActiveElement) {
-            currentActiveElement.classList.remove('active');
+            currentActiveElement.classList.remove('skills__list-item--active');
         }
 
-        selectedItem.classList.add('active');
+        selectedItem.classList.add('skills__list-item--active');
     }
 
     disconnectedCallback() {

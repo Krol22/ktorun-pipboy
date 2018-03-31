@@ -7,13 +7,17 @@ export class StatusComponent extends HTMLElement {
         this.level = 24;
 
         this.template = `
-            <div class="image-container">
-                <img class="image" src=${statusImg} />
-                <h2 class="status-text">
-                    <span class="name"> Karol Toruń </span> 
-                    Level <span id="level">${this.level}</span> Frontend developer
-                </h2>
-            </div>
+            <section class="status">
+                <img class="status__image" src=${statusImg} />
+                <div class="status__text">
+                    <h2 class="heading-secondary u-margin-bottom">
+                        Karol Toruń
+                    </h2>
+                    <h3 class="heading-tertiary">
+                        Level <span id="level">${this.level}</span> Frontend developer
+                    </h3>
+                </div>
+            </section>
         `;
     }
 

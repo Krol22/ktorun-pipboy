@@ -31,7 +31,7 @@ module.exports = {
                     fallback: 'style-loader'
                 })
         },  {
-            test: /\.(wav|png)$/,
+            test: /\.(wav|png|svg)$/,
             use: 'file-loader'
         }]
     },
