@@ -44,6 +44,7 @@ export class NavigationComponent extends HTMLElement {
         this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
 
         this.soundCheckbox.checked = (localStorage.getItem('soundEnabled') === 'true');
+        this.select.value = localStorage.getItem('pipboy-color');
 
         this.select.addEventListener('change', e => {
             this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
