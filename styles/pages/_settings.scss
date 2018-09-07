@@ -1,0 +1,78 @@
+.settings {
+    display: flex;
+    position: relative;
+    height: $section-height;
+
+    flex-direction: column;
+    padding: 4rem;
+
+    text-align: center;
+
+    &__group:first-of-type {
+        margin-top: 3rem;
+    }
+
+    &__group:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+
+    &__checkbox {
+        content: ' ';
+        display: inline-block;
+        position: relative;
+        width: 2rem;
+        height: 2rem;
+        border: $border-width solid $color-white;
+    }
+
+    &__checkbox-input:checked~ &__label &__checkbox {
+        &::after {
+            position: relative;
+            width: .5rem;
+            height: .5rem;
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: ' ';
+            background-color: $color-white;
+        }
+    }
+
+    &__checkbox-input {
+        visibility: hidden;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+
+        &--text {
+            flex: 1;
+        }
+
+        &--input {
+            flex: 2;
+        }
+    }
+
+    &__select {
+        border: $border-width solid $color-white;
+        background-color: $color-black;
+        padding: 1rem 2rem;
+        border-radius: 0;
+        cursor: pointer;
+        outline: none;
+
+        // to mixin
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        color: inherit;
+        letter-spacing: inherit;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+}

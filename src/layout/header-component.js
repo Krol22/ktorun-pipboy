@@ -36,7 +36,7 @@ export class HeaderComponent extends HTMLElement {
         };
 
         this._calculateDates();
-    };
+    }
 
     _calculateDates() {
         var oneDay = 24 * 60 * 60 * 1000;
@@ -49,10 +49,5 @@ export class HeaderComponent extends HTMLElement {
 
         this.elements.xpValue.innerHTML = `${ workDaysExp } days`;
         this.elements.lvlValue.innerHTML = `${ lvlYears }`;
-    };
-
-    disconnectedCallback() {
-
-    };
-
+    }
 }

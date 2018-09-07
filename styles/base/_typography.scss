@@ -12,6 +12,9 @@ body {
     letter-spacing: .4rem;
 }
 
+.link:link,
+.link:any-link,
+.link:-webkit-any-link,
 .link:active,
 .link:visited {
     color: $color-white;

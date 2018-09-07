@@ -25,4 +25,4 @@ export const SoundService = {
         this.enabled = value;
     }
 
-}
+};

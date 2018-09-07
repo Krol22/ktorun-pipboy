@@ -5,7 +5,6 @@ export class NavigationComponent extends HTMLElement {
     constructor() {
         super();
         this.template = `
-            <div id="open-btn" class="nav__open-btn">&equiv;</div>
             <nav id="menu" class="nav">
                 <h2>Settings</h2>
                 <div id="close-btn" class="nav__exit">&times;</div>
@@ -46,22 +45,22 @@ export class NavigationComponent extends HTMLElement {
         this.soundCheckbox.checked = (localStorage.getItem('soundEnabled') === 'true');
         this.select.value = localStorage.getItem('pipboy-color');
 
-        this.select.addEventListener('change', e => {
+        this.select.addEventListener('change', (e) => {
             this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
             this.currentColor = e.target.value;
             localStorage.setItem('pipboy-color', this.currentColor);
             this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
         });
 
-        this.openMenuButton.addEventListener('click', e => {
+        this.openMenuButton.addEventListener('click', () => {
             this.menu.classList.add('nav--open');
         });
 
-        this.closeMenuButton.addEventListener('click', e => {
+        this.closeMenuButton.addEventListener('click', () => {
             this.menu.classList.remove('nav--open');
         });
 
-        this.soundCheckbox.addEventListener('change', e => {
+        this.soundCheckbox.addEventListener('change', (e) => {
             SoundService.toggleSound(e.target.checked);
         });
     }

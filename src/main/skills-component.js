@@ -8,20 +8,19 @@ import cssImg from '../../assets/images/css.png';
 import toolsImg from '../../assets/images/tools.png';
 import testsImg from '../../assets/images/tests.png';
 import webComponentsImg from '../../assets/images/webComponents.png';
-import vimImg from '../../assets/images/vim.png';
 import sqlImg from '../../assets/images/sql.png';
 import otherImg from '../../assets/images/other.png';
 
 const skills = [
     { 
-        name: 'JS', 
+        name: 'JavaScript', 
         img: jsImg,
-        text: 'Main and favorite language that I use in work and daily projects.'
+        text: 'ES5, ES6, ESNext.'
     },
     { 
         name: 'AngularJS', 
         img: angularJsImg,
-        text: 'First framework (ver. 1.6) I was learning during my initial project at work. You can check some of components I\'ve created on my Github page.',
+        text: 'First framework (ver. 1.6) I was learning during my initial project at work.',
     },
     { 
         name: 'Angular', 
@@ -29,49 +28,48 @@ const skills = [
         text: 'In small team we have created an inner order management system for bakery. More about it in my LinkedIn account.'
     },
     { 
+        name: 'React', 
+        text: 'React, Redux, React Native, Reactotron, Redux-form',
+    },
+    { 
+        name: 'HTML 5', 
+        img: htmlImg,
+        text: 'Semantic new elements, new form attribute types, canvas, audio. I was working also with Geolocation, Localstorage and Cache API of HTML5.'
+    },
+    { 
+        name: 'CSS 3', 
+        img: cssImg,
+        text: 'SaSS, BeM, transitions, animations and RWD with grid and flexbox.'
+    },
+    { 
         name: 'Kendo UI', 
         img: kendoUiImg,
         text: 'Library used with JQuery in main project in my current work. I have used most of UI Components from library (exept Charts components).'
     },
     { 
-        name: 'HTML 5', 
-        img: htmlImg,
-        text: 'I know about semantic new elements, new form attribute types, canvas, audio. Also I was working with Geolocation, Localstorage and Cache API of HTML5.'
-    },
-    { 
-        name: 'CSS 3', 
-        img: cssImg,
-        text: 'Best things I know about CSS are transitions, animations and RWD with grid and flexbox. Now I\'m learning about preprocessors and BEM.'
-    },
-    { 
         name: 'Build tools', 
         img: toolsImg,
-        text: 'When I was starting my adventure with JS projects I worked with grunt and gulp. Now I basically use webpack for everything.'
+        text: 'Earlier I was working with grunt and gulp. Now I use webpack (v3).'
     },
     { 
         name: 'Tests', 
         img: testsImg,
-        text: 'Karma runner + Jasmine and PhantomJS. In work project I use Jasmine with Chutzpah test runner (not the best but it works).'
+        text: 'Karma runner + Jasmine and PhantomJS. In work project I use Jasmine with Chutzpah test runner.'
     },
-    { 
-        name: 'Web Components', 
-        img: webComponentsImg,
-        text: 'This page is written with use only of custom elements. Love this technology, and I want to use it more in other projects.'
-    },
-    { 
-        name: 'VIM', 
-        img: vimImg,
-        text: 'BEST, EDITOR, EVER (specially in VSCode with Vim extension)'
-        },
     { 
         name: 'SQL', 
         img: sqlImg,
         text: 'Most of databases I have used were SQL db.'
     },
     { 
+        name: 'Web Components', 
+        img: webComponentsImg,
+        text: 'Webpage2v is written with use only of custom elements.'
+    },
+    { 
         name: 'Other', 
         img: otherImg,
-        text: `Other skills not mentioned earlier: Agile, Git, Jira, Trello, VSTS, basic Java and C# ( I worked in project with API written in those languages )` 
+        text: `Other skills not mentioned earlier: NodeJs + Express (with loopback), Agile, Git, Jira, Trello, VSTS, basic Java and C#` 
     }
 ];
 

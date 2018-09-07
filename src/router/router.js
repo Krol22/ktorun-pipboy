@@ -66,7 +66,6 @@ function findRoute(path) {
             
             if(routerPathElements[i] !== pathElements[i]) {
                 return false;
-                break;
             }
         }
 

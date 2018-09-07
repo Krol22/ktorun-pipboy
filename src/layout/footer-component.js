@@ -10,6 +10,7 @@ export class FooterComponent extends HTMLElement {
                     <router-link id="status-btn" class="pipboy-footer__item btn btn--active" [link]="/">Status</router-link>
                     <router-link id="skills-btn" class="pipboy-footer__item btn" [link]="/skills">S.K.I.L.L.S</router-link>
                     <router-link id="contact-btn" class="pipboy-footer__item btn" [link]="/contact">Contact</router-link>
+                    <router-link id="settings-btn" class="pipboy-footer__item btn" [link]="/settings">Settings</router-link>
                 </div>
             </footer>
         `;
@@ -21,7 +22,8 @@ export class FooterComponent extends HTMLElement {
         this.buttons = [
             this.querySelector('#status-btn'),
             this.querySelector('#skills-btn'),
-            this.querySelector('#contact-btn')
+            this.querySelector('#contact-btn'),
+            this.querySelector('#settings-btn')
         ];
 
         this.buttons.forEach(button => {
