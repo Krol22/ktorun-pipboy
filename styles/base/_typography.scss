@@ -4,11 +4,8 @@ body {
     font-family: 'Inconsolata', monospace;
     font-weight: 700;
     font-size: 2.5rem;
-
     color: $color-white;
     text-shadow: 0 0 10px $color-white;
-
-
     letter-spacing: .4rem;
 }
 
@@ -18,4 +15,8 @@ body {
 .link:active,
 .link:visited {
     color: $color-white;
+}
+
+.paragraph {
+    margin: 100px 0px;
 }

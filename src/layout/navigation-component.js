@@ -5,6 +5,7 @@ export class NavigationComponent extends HTMLElement {
     constructor() {
         super();
         this.template = `
+            <div id="open-btn" class="nav__open-btn">&equiv;</div>
             <nav id="menu" class="nav">
                 <h2>Settings</h2>
                 <div id="close-btn" class="nav__exit">&times;</div>

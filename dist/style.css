@@ -69,12 +69,21 @@ body {
   text-shadow: 0 0 10px #fff;
   letter-spacing: .4rem; }
 
+.link:link,
+.link:any-link,
+.link:-webkit-any-link,
 .link:active,
 .link:visited {
   color: #fff; }
 
+.paragraph {
+  margin: 100px 0px; }
+
 .u-margin-bottom {
   margin-bottom: 1rem !important; }
+
+.u-margin-bottom-30 {
+  margin-bottom: 3rem !important; }
 
 .u-center-element {
   display: flex;
@@ -315,39 +324,11 @@ body {
     width: 50%;
     margin-bottom: 3rem; }
 
-.skills {
-  display: flex;
-  position: relative;
-  height: 60rem; }
-  .skills__list {
-    position: relative;
-    left: -2rem;
-    padding-left: 2rem;
-    direction: rtl;
-    overflow-y: scroll;
-    list-style-type: unset;
-    width: 38%;
-    left: calc(0.3rem * -1); }
-  .skills__details {
-    position: absolute;
-    width: 60%;
-    right: 0; }
-  .skills__icon {
-    text-align: center;
-    padding: 5rem; }
-  .skills__icon-image {
-    height: 30rem; }
-  .skills__list-item {
-    margin: 0;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
-    border: 0.3rem solid transparent; }
-    .skills__list-item--active {
-      border-color: #fff; }
-  .skills__text {
-    padding: 1rem .5rem 0 .5rem;
-    text-align: justify;
-    border-top: 0.3rem solid #fff; }
+.about {
+  height: 60rem;
+  text-align: center;
+  padding: 4rem;
+  line-height: 4rem; }
 
 .contact {
   height: 60rem;
@@ -357,5 +338,58 @@ body {
     text-align: justify;
     line-height: 4rem;
     margin: 10rem 0; }
+
+.settings {
+  display: flex;
+  position: relative;
+  height: 60rem;
+  flex-direction: column;
+  padding: 4rem;
+  text-align: center; }
+  .settings__group:first-of-type {
+    margin-top: 3rem; }
+  .settings__group:not(:last-child) {
+    margin-bottom: 3rem; }
+  .settings__checkbox {
+    content: ' ';
+    display: inline-block;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border: 0.3rem solid #fff; }
+  .settings__checkbox-input:checked ~ .settings__label .settings__checkbox::after {
+    position: relative;
+    width: .5rem;
+    height: .5rem;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: ' ';
+    background-color: #fff; }
+  .settings__checkbox-input {
+    visibility: hidden; }
+  .settings__label {
+    display: flex;
+    align-items: center; }
+    .settings__label--text {
+      flex: 1; }
+    .settings__label--input {
+      flex: 2; }
+  .settings__select {
+    border: 0.3rem solid #fff;
+    background-color: #111;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
 
 /*# sourceMappingURL=style.css.map*/

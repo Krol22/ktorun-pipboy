@@ -42,7 +42,7 @@ export const Router = {
             this.element.innerHTML = this.routes[route.path].text;
         }
     }
-}
+};
 
 function findRoute(path) {
     let pathElements = path.split("/");
