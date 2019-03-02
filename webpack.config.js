@@ -17,7 +17,8 @@ module.exports = {
         port: 3000
     },
     plugins: [
-        new LiveReloadPlugin()
+        new LiveReloadPlugin(),
+        extractSass
     ],
     module: {
         rules: [{
@@ -31,11 +32,8 @@ module.exports = {
                     fallback: 'style-loader'
                 })
         },  {
-            test: /\.(wav|png|svg)$/,
+            test: /\.(wav|png|svg|gif)$/,
             use: 'file-loader'
         }]
     },
-    plugins: [
-        extractSass
-    ]
 };

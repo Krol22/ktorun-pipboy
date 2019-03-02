@@ -1,0 +1,13 @@
+.pipboy {
+    min-width: 101rem;
+    width: 101rem;
+    padding: 4rem;
+    background-color: $color-black; 
+    margin-top: 5rem;
+    opacity: 0;
+    transition: opacity 2s steps(10);
+}
+
+.pipboy--visible {
+    opacity: 1;
+}

@@ -1,10 +1,5 @@
 .crt {
     // For fixing mobile width
-    min-width: 101rem;
-    width: 101rem;
-    padding: 4rem;
-    background-color: $color-black; 
-    margin-top: 5rem;
 
     &::before {
         content: " ";
@@ -12,7 +7,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        bottom: 0;
+        bottom: -2000px;
         right: 0;
         margin: 0 auto;
         background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
@@ -28,6 +23,7 @@
         top: 0;
         left: 0;
         right: 0;
+        bottom: -2000px;
         background-color: $color-black;
 
         &--green {

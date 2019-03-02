@@ -9,6 +9,8 @@ import { StatusComponent } from './main/status-component.js';
 import { ContactComponent } from './main/contact-component.js';
 import { SettingsComponent } from './main/settings-component.js';
 
+import { LoadingComponent } from './loading/loading-component.js';
+
 import { SoundService } from './sound/sound.service.js';
 
 require('../styles/main.scss');
@@ -53,3 +55,4 @@ customElements.define('footer-component', FooterComponent);
 customElements.define('about-me-component', AboutComponent);
 customElements.define('status-component', StatusComponent);
 customElements.define('contact-component', ContactComponent);
+customElements.define('loading-component', LoadingComponent);
