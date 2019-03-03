@@ -208,7 +208,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__main_status_component_js__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__main_contact_component_js__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__main_settings_component_js__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sound_sound_service_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__loading_loading_component_js__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sound_sound_service_js__ = __webpack_require__(0);
 
 
 
@@ -222,7 +223,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__webpack_require__(16);
+
+
+__webpack_require__(20);
 
 __WEBPACK_IMPORTED_MODULE_0__router_router_module_js__["b" /* RouterModule */].init();
 
@@ -249,7 +252,7 @@ __WEBPACK_IMPORTED_MODULE_0__router_router_module_js__["a" /* Router */].addPath
 
 __WEBPACK_IMPORTED_MODULE_0__router_router_module_js__["a" /* Router */].goTo('/');
 
-__WEBPACK_IMPORTED_MODULE_8__sound_sound_service_js__["a" /* SoundService */].init();
+__WEBPACK_IMPORTED_MODULE_9__sound_sound_service_js__["a" /* SoundService */].init();
 
 
 var crtFilter = document.querySelector('.crt-color-filter');
@@ -264,6 +267,7 @@ customElements.define('footer-component', __WEBPACK_IMPORTED_MODULE_3__layout_fo
 customElements.define('about-me-component', __WEBPACK_IMPORTED_MODULE_4__main_about_component_js__["a" /* AboutComponent */]);
 customElements.define('status-component', __WEBPACK_IMPORTED_MODULE_5__main_status_component_js__["a" /* StatusComponent */]);
 customElements.define('contact-component', __WEBPACK_IMPORTED_MODULE_6__main_contact_component_js__["a" /* ContactComponent */]);
+customElements.define('loading-component', __WEBPACK_IMPORTED_MODULE_8__loading_loading_component_js__["a" /* LoadingComponent */]);
 
 
 /***/ }),
@@ -410,6 +414,7 @@ class NavigationComponent extends HTMLElement {
                         <option value="blue" class="btn">Blue</option>
                     </select>
                 </div>
+
             </nav>
         `;
     }
@@ -720,6 +725,136 @@ class SettingsComponent extends HTMLElement {
 
 /***/ }),
 /* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_delay_helper__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assets_images_loading_gif__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__assets_images_loading_gif___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__assets_images_loading_gif__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(19);
+
+
+
+
+class LoadingComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.template = `
+            <div class="loading-component">
+                <div class="loading-container__first">
+                    <div class="loading-header">PIP-OS(R) V7.1.0.8</div>
+                    <div id="loading-text"></div>
+                </div>
+                <div class="loading-container__second">
+                    <img src=".${__WEBPACK_IMPORTED_MODULE_1__assets_images_loading_gif___default.a}" />
+                </div>
+            </div>
+        `;
+        this.loadingText = `
+            COPYRIGHT 2075 ROBCO(R) </br>
+            LOADER V1.1 </br>
+            EXEC VERSION 41.10 </br>
+            64k RAM SYSTEM </br>
+            38911 BYTES FREE </br>
+            NO HOLOTAPE FOUND </br>
+            LOAD ROM(1): DEITRIX 303
+        `.trim();
+    }
+
+    connectedCallback() {
+        this.innerHTML = this.template;
+
+        document.documentElement.style.setProperty('--loading-speed', __WEBPACK_IMPORTED_MODULE_2__constants__["a" /* LOADING_SPEED */]);
+
+        this.pipboy = document.querySelectorAll('.pipboy')[0];
+        this.loadingComponent = document.querySelectorAll('.loading-component')[0];
+        this.loadingTextContainer = document.querySelectorAll('#loading-text')[0];
+        this.firstAnimationContainer = document.querySelectorAll('.loading-container__first')[0];
+        this.secondAnimationContainer = document.querySelectorAll('.loading-container__second')[0];
+
+
+        // if (true) {
+        //     this.loadingComponent.remove();
+        //     delay(1000);
+        //     this.pipboy.classList.add('pipboy--visible');
+        // }
+        this.firstAnimation();
+    }
+
+    async firstAnimation() {
+        let loadingCounter = 0;
+        let blinkCounter = 0;
+
+        await Object(__WEBPACK_IMPORTED_MODULE_0__helpers_delay_helper__["a" /* delay */])(1500 * __WEBPACK_IMPORTED_MODULE_2__constants__["a" /* LOADING_SPEED */]);
+
+        const interval = setInterval(async () => {
+            loadingCounter++;
+            blinkCounter++;
+            if (this.loadingText.substring(loadingCounter, loadingCounter + 5) === '</br>') {
+                this.loadingTextContainer.innerHTML += '</br>';
+                loadingCounter+=5;
+            }
+
+            this.loadingTextContainer.innerHTML = this.loadingText.substring(0, loadingCounter);
+
+            if (Math.floor(blinkCounter / 10) % 2 === 0)
+                this.loadingTextContainer.innerHTML += '<div class="caret">&#9608;</div>';
+
+            if (loadingCounter > this.loadingText.length) {
+                clearInterval(interval);
+                await Object(__WEBPACK_IMPORTED_MODULE_0__helpers_delay_helper__["a" /* delay */])(700 * __WEBPACK_IMPORTED_MODULE_2__constants__["a" /* LOADING_SPEED */]);
+                this.firstAnimationContainer.classList.add('loading-container__first--loaded');
+                this.secondAnimation();
+            }
+        }, 30 * __WEBPACK_IMPORTED_MODULE_2__constants__["a" /* LOADING_SPEED */]);
+    }
+
+    async secondAnimation() {
+        await Object(__WEBPACK_IMPORTED_MODULE_0__helpers_delay_helper__["a" /* delay */])(3500 * __WEBPACK_IMPORTED_MODULE_2__constants__["a" /* LOADING_SPEED */]);
+
+        this.secondAnimationContainer.classList.add('loading-container__second--loaded');
+
+        await Object(__WEBPACK_IMPORTED_MODULE_0__helpers_delay_helper__["a" /* delay */])(3500 * __WEBPACK_IMPORTED_MODULE_2__constants__["a" /* LOADING_SPEED */]);
+
+        this.loadingComponent.style.display = 'none';
+        this.secondAnimationContainer.remove();
+        this.pipboy.classList.add('pipboy--visible');
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = LoadingComponent;
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = delay;
+function delay(time) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    });
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "7c39eb561f21fe11517303b8e2d397f5.gif";
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const LOADING_SPEED = .7;
+/* harmony export (immutable) */ __webpack_exports__["a"] = LOADING_SPEED;
+
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
