@@ -1,6 +1,4 @@
 .crt {
-    // For fixing mobile width
-
     &::before {
         content: " ";
         display: block;
@@ -15,6 +13,13 @@
         background-size: 100% .4rem, 3px 100%;
         animation: flicker 0.15s infinite, moveAnim 0.02s infinite linear;
         pointer-events: none;
+
+    }
+
+    @supports (-moz-appearance:none) {
+        .crt::before {
+            animation: none;
+        }
     }
 }
 

@@ -25,6 +25,7 @@ export class NavigationComponent extends HTMLElement {
                         <option value="blue" class="btn">Blue</option>
                     </select>
                 </div>
+
             </nav>
         `;
     }

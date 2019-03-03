@@ -9,6 +9,11 @@ body {
     letter-spacing: .4rem;
 }
 
+a {
+    appearance: none;
+    color: $color-white;
+}
+
 .link:link,
 .link:any-link,
 .link:-webkit-any-link,
