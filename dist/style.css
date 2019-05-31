@@ -205,13 +205,13 @@ a {
     padding: .4rem .5rem; }
     .header-list__item--lvl {
       text-align: right;
-      width: 37%; }
+      width: 35%; }
     .header-list__item--hp {
       width: 21%; }
     .header-list__item--ap {
       width: 16%; }
     .header-list__item--xp {
-      width: 21%; }
+      width: 23%; }
 
 .nav {
   position: fixed;
