@@ -254,20 +254,14 @@ __WEBPACK_IMPORTED_MODULE_0__router_router_module_js__["a" /* Router */].goTo('/
 
 __WEBPACK_IMPORTED_MODULE_9__sound_sound_service_js__["a" /* SoundService */].init();
 
-
-var crtFilter = document.querySelector('.crt-color-filter');
-var currentColor = localStorage.getItem('pipboy-color');
-currentColor = currentColor || 'white';
-crtFilter.classList.add(`crt-color-filter--${currentColor}`);           
-
 customElements.define('header-component', __WEBPACK_IMPORTED_MODULE_1__layout_header_component_js__["a" /* HeaderComponent */]);
-customElements.define('navigation-component', __WEBPACK_IMPORTED_MODULE_2__layout_navigation_component_js__["a" /* NavigationComponent */]);
 customElements.define('settings-component', __WEBPACK_IMPORTED_MODULE_7__main_settings_component_js__["a" /* SettingsComponent */]);
 customElements.define('footer-component', __WEBPACK_IMPORTED_MODULE_3__layout_footer_component_js__["a" /* FooterComponent */]);
 customElements.define('about-me-component', __WEBPACK_IMPORTED_MODULE_4__main_about_component_js__["a" /* AboutComponent */]);
 customElements.define('status-component', __WEBPACK_IMPORTED_MODULE_5__main_status_component_js__["a" /* StatusComponent */]);
 customElements.define('contact-component', __WEBPACK_IMPORTED_MODULE_6__main_contact_component_js__["a" /* ContactComponent */]);
 customElements.define('loading-component', __WEBPACK_IMPORTED_MODULE_8__loading_loading_component_js__["a" /* LoadingComponent */]);
+customElements.define('navigation-component', __WEBPACK_IMPORTED_MODULE_2__layout_navigation_component_js__["a" /* NavigationComponent */]);
 
 
 /***/ }),
@@ -405,7 +399,7 @@ class NavigationComponent extends HTMLElement {
                         <div class="nav__checkbox"></div>
                     </label>
                 </div>    
-                <div class="nav__group">
+                <div id="select-color-container" class="nav__group">
                     <label class="nav__label u-margin-bottom" for="color_select">Color</label>
                     <select id="color-select" class="nav__select">
                         <option value="white" class="btn">White</option>
@@ -422,26 +416,13 @@ class NavigationComponent extends HTMLElement {
     connectedCallback() {
         this.innerHTML = this.template; 
 
-        this.crtFilter = document.querySelector('.crt-color-filter');
         this.select = this.querySelector('#color-select');
         this.menu = this.querySelector('#menu');
         this.soundCheckbox = this.querySelector('#sound-checkbox');
         this.openMenuButton = this.querySelector('#open-btn');
         this.closeMenuButton = this.querySelector('#close-btn');
 
-        this.currentColor = localStorage.getItem('pipboy-color');
-        this.currentColor = this.currentColor || 'white';
-        this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
-
         this.soundCheckbox.checked = (localStorage.getItem('soundEnabled') === 'true');
-        this.select.value = localStorage.getItem('pipboy-color');
-
-        this.select.addEventListener('change', (e) => {
-            this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
-            this.currentColor = e.target.value;
-            localStorage.setItem('pipboy-color', this.currentColor);
-            this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
-        });
 
         this.openMenuButton.addEventListener('click', () => {
             this.menu.classList.add('nav--open');
@@ -454,10 +435,38 @@ class NavigationComponent extends HTMLElement {
         this.soundCheckbox.addEventListener('change', (e) => {
             __WEBPACK_IMPORTED_MODULE_0__sound_sound_service__["a" /* SoundService */].toggleSound(e.target.checked);
         });
+
+        this.setupColorFilters();
+    }
+
+    // setups color filters for browsers (disabled for mozilla because of poor performance)
+    setupColorFilters() {
+        const isMoz = !!(navigator.userAgent.includes('Firefox') > 0);
+        
+        if (!isMoz) {
+            this.currentColor = localStorage.getItem('pipboy-color');
+            this.currentColor = this.currentColor || 'white';
+            this.crtFilter = document.querySelector('.crt-color-filter');
+            this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
+
+            this.select.addEventListener('change', (e) => {
+                this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
+                this.currentColor = e.target.value;
+                localStorage.setItem('pipboy-color', this.currentColor);
+                this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
+            });
+
+            this.select.value = localStorage.getItem('pipboy-color');
+        } else {
+            this.selectColorContainer = this.querySelector('#select-color-container');
+            this.selectColorContainer.style.display = 'none';
+        }
+
     }
 
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = NavigationComponent;
+
 
 
 /***/ }),
