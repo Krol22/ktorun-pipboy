@@ -42,17 +42,11 @@ Router.goTo('/');
 
 SoundService.init();
 
-
-var crtFilter = document.querySelector('.crt-color-filter');
-var currentColor = localStorage.getItem('pipboy-color');
-currentColor = currentColor || 'white';
-crtFilter.classList.add(`crt-color-filter--${currentColor}`);           
-
 customElements.define('header-component', HeaderComponent);
-customElements.define('navigation-component', NavigationComponent);
 customElements.define('settings-component', SettingsComponent);
 customElements.define('footer-component', FooterComponent);
 customElements.define('about-me-component', AboutComponent);
 customElements.define('status-component', StatusComponent);
 customElements.define('contact-component', ContactComponent);
 customElements.define('loading-component', LoadingComponent);
+customElements.define('navigation-component', NavigationComponent);
