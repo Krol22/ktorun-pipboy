@@ -1,7 +1,7 @@
 import { Router } from './router.js';
 import { RouterLink } from './routerLink.js';
 
-var RouterModule = {
+const RouterModule = {
     init() {
         Router.init();
         customElements.define('router-link', RouterLink);
