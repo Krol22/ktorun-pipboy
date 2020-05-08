@@ -9,6 +9,7 @@ export const Router = {
         this.history = [];
 
         window.onpopstate = e => {
+            console.log(e);
             this.goTo(e.state.url);
         };
     },
@@ -29,7 +30,7 @@ export const Router = {
 
         this.currentLocation = route; 
 
-        window.history.pushState({ url: path }, '', '#' + path);
+        window.history.pushState({ url: path }, path);
 
         if(this.routes[route.path].resolve){
             this.currentLocation.resolve = {};
