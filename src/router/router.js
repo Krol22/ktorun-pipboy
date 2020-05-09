@@ -3,13 +3,11 @@ export const Router = {
         * content can be static html or component
     */
     init: function(routes) {
-        console.log(routes);
         this.routes = routes ? routes : {};
         this.element = document.getElementsByTagName('router')[0];
         this.history = [];
-        this.currentLocation = window.location.pathname;
 
-        this.goTo(this.currentLocation);
+        this.goTo(window.location.pathname);
 
         window.onpopstate = e => {
             this.goTo(e.state.url);
@@ -25,9 +23,6 @@ export const Router = {
     },
     goTo: function(path) {
         let route = findRoute(path);
-
-        console.log(path);
-        console.log(route);
 
         if(!this.routes[route.path]) {
             throw new Error('Path not recognized!');
@@ -53,8 +48,6 @@ export const Router = {
 function findRoute(path) {
     let pathElements = path.split("/");
     let parameters = {};
-
-    console.log(Router.routes);
 
     let match = Object.keys(Router.routes).find(routerPath => {
         let routerPathElements = routerPath.split("/");
