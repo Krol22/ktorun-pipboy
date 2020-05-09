@@ -2,8 +2,8 @@ import { Router } from './router.js';
 import { RouterLink } from './routerLink.js';
 
 const RouterModule = {
-    init() {
-        Router.init();
+    init(initialRoutes) {
+        Router.init(initialRoutes);
         customElements.define('router-link', RouterLink);
     }
 };

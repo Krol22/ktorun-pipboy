@@ -4,7 +4,7 @@
     padding: 4rem;
     background-color: $color-black; 
     margin-top: 5rem;
-    opacity: 0;
+    // opacity: 0;
     transition: transform calc(var(--loading-speed) * 2s) linear;
 }
 

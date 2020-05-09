@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime';
+
 import { Router, RouterModule } from './router/router-module.js';
 
 import { HeaderComponent } from './layout/header-component.js';
@@ -15,30 +17,20 @@ import { SoundService } from './sound/sound.service.js';
 
 require('../styles/main.scss');
 
-RouterModule.init();
-
-Router.addPath('/', 
-    {
-        text: '<status-component></status-component>'
-    }
-);
-Router.addPath('/about-me', 
-    {
-        text: '<about-me-component></about-me-component>'
-    }
-);
-Router.addPath('/contact', 
-    {
-        text: '<contact-component></contact-component>'
-    }
-);
-Router.addPath('/settings',
-    {
-        text: '<settings-component></settings-component>'
-    }
-);
-
-Router.goTo('/');
+RouterModule.init({
+    '/': { 
+        text: '<status-component></status-component>' 
+    },
+    '/about-me': { 
+        text: '<about-me-component></about-me-component>' 
+    },
+    '/contact': { 
+        text: '<contact-component></contact-component>' 
+    },
+    '/settings': { 
+        text: '<settings-component></settings-component>' 
+    },
+});
 
 SoundService.init();
 
