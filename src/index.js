@@ -13,8 +13,11 @@ import { SettingsComponent } from './main/settings-component.js';
 import { UsesComponent } from './main/uses-component.js';
 
 import { LoadingComponent } from './loading/loading-component.js';
+import { EastereggComponent } from './layout/easteregg-component.js';
 
 import { SoundService } from './sound/sound.service.js';
+
+import registerEasterEgg from './helpers/easter-egg';
 
 require('../styles/main.scss');
 
@@ -38,6 +41,8 @@ RouterModule.init({
 
 SoundService.init();
 
+registerEasterEgg();
+
 customElements.define('header-component', HeaderComponent);
 customElements.define('settings-component', SettingsComponent);
 customElements.define('footer-component', FooterComponent);
@@ -47,3 +52,4 @@ customElements.define('contact-component', ContactComponent);
 customElements.define('uses-component', UsesComponent);
 customElements.define('loading-component', LoadingComponent);
 customElements.define('navigation-component', NavigationComponent);
+customElements.define('easteregg-component', EastereggComponent);
