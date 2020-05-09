@@ -1,0 +1,54 @@
+.uses {
+    display: flex;
+    position: relative;
+    height: $section-height;
+
+    &__list {
+        position: relative;
+        left: -2rem;
+        padding-left: 2rem;
+
+        direction: rtl;
+        overflow-y: scroll;
+        list-style-type: none;
+        width: 35%;
+        left: calc(#{$border-width} * -1);
+
+        scroll-snap-type: x mandatory;
+    }
+
+    &__details {
+        position: absolute;
+        width: 60%;
+        right: 0;
+    }
+
+    &__icon {
+        text-align: center;
+        padding: 5rem;
+    }
+
+    &__icon-image {
+        height: 30rem;
+    }
+
+    &__list-item {
+        margin: 0;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        border: $border-width solid transparent;
+        scroll-snap-align: start;
+        text-align: left;
+
+        &--active {
+            border-color: $color-white;
+            background-color: rgba($color-white, 0.2);
+        }
+    }
+
+    &__text {
+        padding: 1rem .5rem 0 .5rem;
+        text-align: justify;
+        border-top: $border-width solid $color-white;
+    }
+}

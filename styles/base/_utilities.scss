@@ -12,7 +12,17 @@
 
 /* Scroll styling */
 
-// #todo other scroll bars.
+/*
+    Chrome - works,
+    Firefox - hidden,
+    Safari - todo,
+    Mobile - todo,
+*/
+
+.u-scroll-container {
+    scrollbar-color: transparent transparent;
+}
+
 .u-scroll-container::-webkit-scrollbar {
 	width: $border-width;
 	background-color: transparent;
@@ -28,7 +38,6 @@
 
 
 // fancy borders
-
 .u-top-to-bottom, .u-right-top-to-bottom, .u-bottom-to-top {
 	position: relative;
 }

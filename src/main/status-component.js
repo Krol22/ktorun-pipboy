@@ -1,7 +1,6 @@
 import statusImg from '../../assets/images/stats_main_100.png';
 
 export class StatusComponent extends HTMLElement {
-
     constructor() {
         super();
         this.level = 24;
