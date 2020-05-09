@@ -11,25 +11,9 @@
         direction: rtl;
         overflow-y: scroll;
         list-style-type: none;
-        width: 35%;
         left: calc(#{$border-width} * -1);
 
         scroll-snap-type: x mandatory;
-    }
-
-    &__details {
-        position: absolute;
-        width: 60%;
-        right: 0;
-    }
-
-    &__icon {
-        text-align: center;
-        padding: 5rem;
-    }
-
-    &__icon-image {
-        height: 30rem;
     }
 
     &__list-item {
@@ -44,6 +28,28 @@
             border-color: $color-white;
             background-color: rgba($color-white, 0.2);
         }
+    }
+
+    &__items {
+        display: block;
+        flex-grow: 1;
+        padding: 0 10px;
+    }
+
+    &__item {
+        display: none;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    &__item--visible {
+        display: flex;
+    }
+
+    &__icon {
+        height: 60%;
+        text-align: center;
+        padding: 5rem;
     }
 
     &__text {
