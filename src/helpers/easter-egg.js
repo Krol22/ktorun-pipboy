@@ -13,7 +13,7 @@ export default function registerEasterEgg() {
             events.push(e.key.toLowerCase());
 
             if (pattern.length === events.length && pattern.every((element, index) => element === events[index])) {
-                console.log('Easter egg!');
+                document.querySelector('body').dataset.restart = 'true';
             }
 
             window.clearTimeout(timeout)
