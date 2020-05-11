@@ -15,6 +15,8 @@ export const SoundService = {
     },
 
     play(soundName) {
+        return;
+        
         if(this.enabled) {
             this.sounds[soundName].play();
         }

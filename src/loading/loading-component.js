@@ -8,7 +8,8 @@ export class LoadingComponent extends HTMLElement {
         this.template = `
             <div class="loading-component">
                 <div class="loading-container__restart">
-                    <div id="restart-loading-text"></div>
+                    <div class="restart-header">EMERGENCY REBOOT</div>
+                    <span id="restart-text"></span><span id="restart-text__dots"></span>
                 </div>
                 <div class="loading-container__first">
                     <div class="loading-header">PIP-OS(R) V7.1.0.8</div>
@@ -28,6 +29,7 @@ export class LoadingComponent extends HTMLElement {
             NO HOLOTAPE FOUND </br>
             LOAD ROM(1): DEITRIX 303
         `.trim();
+        this.restartText = `PLEASE STAND BY`;
     }
 
     connectedCallback() {
@@ -35,56 +37,79 @@ export class LoadingComponent extends HTMLElement {
 
         document.documentElement.style.setProperty('--loading-speed', LOADING_SPEED);
 
+        this.body = document.querySelector('body');
         this.pipboy = document.querySelectorAll('.pipboy')[0];
         this.loadingComponent = document.querySelectorAll('.loading-component')[0];
         this.loadingTextContainer = document.querySelectorAll('#loading-text')[0];
-        this.restartLoadingContainer = document.querySelectorAll('#restart-loading-text')[0];
+        this.restartTextContainer = document.querySelectorAll('#restart-text')[0];
+        this.restartTextDotsContainer = document.querySelectorAll('#restart-text__dots')[0];
+        this.restartLoadingContainer = document.querySelectorAll('.loading-container__restart')[0];
         this.firstAnimationContainer = document.querySelectorAll('.loading-container__first')[0];
         this.secondAnimationContainer = document.querySelectorAll('.loading-container__second')[0];
 
         window.setInterval(() => {
-            const body = document.querySelector('body');
-            if (body.dataset.restart !== 'true') {
+            if (this.body.dataset.restart !== 'true') {
                 return;
             }
 
-            this.loadingComponent.style.display = 'block';
-            body.dataset.restart = 'false';
-            this.pipboy.classList.remove('pipboy--visible');
+            this.eastereggContainer = document.querySelectorAll('.easteregg')[0];
+            this.pipboy.classList.add('pipboy--transition');
 
+            this.body.dataset.restart = 'false';
+            this.body.dataset.restarting = 'true';
+
+            this.restartLoadingContainer.classList.remove('loading-container__restart--loaded');
             this.firstAnimationContainer.classList.remove('loading-container__first--loaded');
             this.secondAnimationContainer.classList.remove('loading-container__second--loaded');
 
+            this.firstAnimationContainer.style.display = 'none';
+
+            this.eastereggContainer.classList.add('easteregg--loading');
+
             this.loadingTextContainer.innerHTML = '';
+            this.restartTextContainer.innerHTML = '';
+            this.restartTextDotsContainer.innerHTML = '';
 
-            this.firstAnimation();
+            this.restartAnimation();
         }, 50);
-
     }
 
     async restartAnimation() {
         let loadingCounter = 0;
-        let blinkCounter = 0;
 
+        this.pipboy.classList.remove('pipboy--visible');
         await delay(2000 * LOADING_SPEED);
 
-        const interval = setInterval(async() => {
-            loadingCounter+=50;
-            blinkCounter++;
 
-            this.restartLoadingContainer.innerHTML = this.restartText.substring(0, loadingCounter);
+        this.loadingComponent.style.display = 'block';
+        this.restartLoadingContainer.style.display = 'inline-block';
 
-            if (Math.floor(blinkCounter / 10) % 2 === 0) {
-                this.restartLoadingContainer.innerHTML += '<div class="caret">&#9608;</div>';
-            }
+        await delay(3000 * LOADING_SPEED);
+
+        const interval = setInterval(async () => {
+            loadingCounter++;
+
+            this.restartTextContainer.innerHTML = this.restartText.substring(0, loadingCounter);
 
             if (loadingCounter > this.restartText.length) {
                 clearInterval(interval);
-                await delay(500 * LOADING_SPEED);
+                await delay(1000 * LOADING_SPEED);
+                let dots = 0;
+                while(dots < 5) {
+                    dots++;
+                    this.restartTextDotsContainer.innerHTML = Array.from(Array(dots)).map(() => `.`).join('');
+                    await delay(2000 * LOADING_SPEED);
+                }
                 this.restartLoadingContainer.classList.add('loading-container__restart--loaded');
+                await delay(4000 * LOADING_SPEED);
+                this.restartLoadingContainer.style.display = 'none';
+                await delay(1000 * LOADING_SPEED);
+
+                this.firstAnimationContainer.style.display = 'inline-block';
+                this.pipboy.classList.remove('pipboy--transition');
                 this.firstAnimation();
             }
-        });
+        }, 30 * LOADING_SPEED);
     }
 
     async firstAnimation() {
@@ -124,5 +149,7 @@ export class LoadingComponent extends HTMLElement {
 
         this.loadingComponent.style.display = 'none';
         this.pipboy.classList.add('pipboy--visible');
+        this.body.dataset.restarting = 'false';
+        this.eastereggContainer.classList.remove('easteregg--loading');
     }
 }

@@ -13,7 +13,12 @@ export default function registerEasterEgg() {
             events.push(e.key.toLowerCase());
 
             if (pattern.length === events.length && pattern.every((element, index) => element === events[index])) {
-                document.querySelector('body').dataset.restart = 'true';
+                const body = document.querySelector('body');
+                if (body.dataset.restarting === 'true') {
+                    return;
+                }
+
+                body.dataset.restart = 'true';
             }
 
             window.clearTimeout(timeout)

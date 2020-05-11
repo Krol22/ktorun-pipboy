@@ -3,7 +3,6 @@ import statusImg from '../../assets/images/stats_main_100.png';
 export class StatusComponent extends HTMLElement {
     constructor() {
         super();
-        this.level = 24;
 
         this.template = `
             <section class="status">
@@ -13,7 +12,7 @@ export class StatusComponent extends HTMLElement {
                         Karol Toruń
                     </h2>
                     <h3 class="heading-tertiary">
-                        Level <span id="level">${this.level}</span> JS developer at 
+                        Level <span id="level"></span> Fullstack JS developer at 
                         <a class="link" target="_blank" href="https://brainhub.eu"> Brainhub.eu </a>
                     </h3>
                 </div>

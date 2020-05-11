@@ -8,6 +8,10 @@
     transition: transform calc(var(--loading-speed) * 2s) linear;
 }
 
+.pipboy--transition {
+    transition: transform calc(var(--loading-speed) * 2s) linear, opacity calc(var(--loading-speed) * 0.4s) steps(2);
+}
+
 .pipboy--visible {
     opacity: 1;
     animation: turnOn .2s;
