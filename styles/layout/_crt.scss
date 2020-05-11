@@ -11,7 +11,7 @@
         background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
         z-index: 20;
         background-size: 100% .4rem, 3px 100%;
-        animation: flicker 0.15s infinite, moveAnim 0.02s infinite linear;
+        animation: flicker 1.4s infinite, moveAnim 0.4s infinite linear;
         pointer-events: none;
 
     }
