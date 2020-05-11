@@ -1,5 +1,6 @@
 .uses {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     position: relative;
     height: $section-height;
 
@@ -32,7 +33,6 @@
 
     &__items {
         display: block;
-        flex-grow: 1;
         padding: 0 10px;
     }
 
@@ -53,8 +53,9 @@
     }
 
     &__text {
-        padding: 1rem .5rem 0 .5rem;
+        padding: 1rem 1.5rem 0 1.5rem;
         text-align: justify;
+        line-height: 3.2rem;
         border-top: $border-width solid $color-white;
     }
 }
