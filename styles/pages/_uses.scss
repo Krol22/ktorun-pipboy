@@ -51,6 +51,10 @@
         padding: 5rem;
     }
 
+    &__icon-img {
+        filter: drop-shadow(0 0 10px $color-white);
+    }
+
     &__description {
         padding: 1rem 0 0 1.5rem;
         text-align: justify;
