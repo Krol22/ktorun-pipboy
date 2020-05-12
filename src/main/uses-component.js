@@ -1,4 +1,4 @@
-import itermIcon from '../../assets/images/iterm.png';
+import itermIcon from '../../assets/images/icon2.png';
 
 export class UsesComponent extends HTMLElement {
     constructor() {
@@ -32,7 +32,9 @@ export class UsesComponent extends HTMLElement {
                         </div>
                     </div>
                     <div class="uses__item" data-item="editor">
-                        <div class="uses__icon"></div> 
+                        <div class="uses__icon">
+                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                        </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
@@ -49,7 +51,9 @@ export class UsesComponent extends HTMLElement {
                         </div>
                     </div>
                     <div class="uses__item" data-item="macbook">
-                        <div class="uses__icon"></div> 
+                        <div class="uses__icon">
+                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                        </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
@@ -66,7 +70,9 @@ export class UsesComponent extends HTMLElement {
                         </div>
                     </div>
                     <div class="uses__item" data-item="keyboard">
-                        <div class="uses__icon"></div> 
+                        <div class="uses__icon">
+                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                        </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
@@ -84,7 +90,9 @@ export class UsesComponent extends HTMLElement {
                         </div>
                     </div>
                     <div class="uses__item" data-item="monitor">
-                        <div class="uses__icon"></div> 
+                        <div class="uses__icon">
+                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                        </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>

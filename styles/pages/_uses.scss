@@ -48,11 +48,12 @@
     &__icon {
         height: 60%;
         text-align: center;
-        padding: 5rem;
+        padding: 2rem;
     }
 
     &__icon-img {
-        filter: drop-shadow(0 0 10px $color-white);
+        filter: drop-shadow(0px 0px 20px rgba($color-white, 0.4));
+        width: 350px;
     }
 
     &__description {
