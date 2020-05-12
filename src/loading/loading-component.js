@@ -133,7 +133,7 @@ export class LoadingComponent extends HTMLElement {
 
             if (loadingCounter > this.loadingText.length) {
                 clearInterval(interval);
-                await delay(700 * LOADING_SPEED);
+                await delay(2000 * LOADING_SPEED);
                 this.firstAnimationContainer.classList.add('loading-container__first--loaded');
                 this.secondAnimation();
             }
