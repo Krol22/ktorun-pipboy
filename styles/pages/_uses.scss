@@ -1,6 +1,6 @@
 .uses {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
     position: relative;
     height: $section-height;
 
@@ -33,7 +33,6 @@
 
     &__items {
         display: block;
-        padding: 0 10px;
     }
 
     &__item {
@@ -52,10 +51,50 @@
         padding: 5rem;
     }
 
-    &__text {
-        padding: 1rem 1.5rem 0 1.5rem;
+    &__description {
+        padding: 1rem 0 0 1.5rem;
         text-align: justify;
         line-height: 3.2rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            'null condition weight'
+            'text text text';
+        grid-row-gap: 2rem;
+        grid-column-gap: 2rem;
+    }
+
+    &__condition {
+        grid-area: condition;
         border-top: $border-width solid $color-white;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+
+        &--text, &--value {
+            display: inline-block;
+        }
+    }
+
+    &__weight {
+        grid-area: weight;
+        border-top: $border-width solid $color-white;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+
+        &--text, &--value {
+            display: inline-block;
+        }
+    }
+
+    &__text {
+        border-top: $border-width solid $color-white;
+        grid-area: text;
+        padding: 0.5rem;
+        height: 40px; // Need this for short border on right side
+
+        line-height: 4rem;
     }
 }
