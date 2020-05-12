@@ -11,6 +11,7 @@ import { StatusComponent } from './main/status-component.js';
 import { ContactComponent } from './main/contact-component.js';
 import { SettingsComponent } from './main/settings-component.js';
 import { UsesComponent } from './main/uses-component.js';
+import { ProgressComponent } from './main/progress-component';
 
 import { LoadingComponent } from './loading/loading-component.js';
 import { EastereggComponent } from './layout/easteregg-component.js';
@@ -53,3 +54,4 @@ customElements.define('uses-component', UsesComponent);
 customElements.define('loading-component', LoadingComponent);
 customElements.define('navigation-component', NavigationComponent);
 customElements.define('easteregg-component', EastereggComponent);
+customElements.define('progress-component', ProgressComponent);

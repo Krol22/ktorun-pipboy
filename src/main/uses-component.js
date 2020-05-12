@@ -16,7 +16,7 @@ export class UsesComponent extends HTMLElement {
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
-                                <div class="uses__condition--value">--</div>
+                                <div class="uses__condition--value"/>--</div>
                             </div>
                             <div class="uses__weight u-right-top-to-bottom">
                                 <div class="uses__weight--text">WG</div>
@@ -49,14 +49,14 @@ export class UsesComponent extends HTMLElement {
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
-                                <div class="uses__condition--value">--</div>
+                                <progress-component class="uses__condition--value" data-value="90" />
                             </div>
                             <div class="uses__weight u-right-top-to-bottom">
                                 <div class="uses__weight--text">WG</div>
                                 <div class="uses__weight--value">2.05KG</div>
                             </div>
                             <div class="uses__text u-right-top-to-bottom">
-                                BUILDING COOL STUFF SPEED +7, <br />
+                                BUILDING COOL STUFF SPEED +7,<br />
                                 MODS: bunch of stickers,
                             </div>
                         </div>
@@ -66,7 +66,7 @@ export class UsesComponent extends HTMLElement {
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
-                                <div class="uses__condition--value">--</div>
+                                <progress-component class="uses__condition--value" data-value="80" />
                             </div>
                             <div class="uses__weight u-right-top-to-bottom">
                                 <div class="uses__weight--text">WG</div>
@@ -84,7 +84,7 @@ export class UsesComponent extends HTMLElement {
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
                                 <div class="uses__condition--text">CND</div>
-                                <div class="uses__condition--value">--</div>
+                                <progress-component class="uses__condition--value" data-value="100" />
                             </div>
                             <div class="uses__weight u-right-top-to-bottom">
                                 <div class="uses__weight--text">WG</div>
