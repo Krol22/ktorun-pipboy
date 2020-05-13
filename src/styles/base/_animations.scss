@@ -1,0 +1,71 @@
+@keyframes moveAnim {
+	100% { 
+		top: 4px;
+	}
+}
+
+@keyframes flicker {
+  0% {
+  opacity: 0.37861;
+  }
+  5% {
+  opacity: 0.44769;
+  }
+  10% {
+  opacity: 0.33604;
+  }
+  15% {
+  opacity: 0.70626;
+  }
+  20% {
+  opacity: 0.28128;
+  }
+  25% {
+  opacity: 0.63891;
+  }
+  30% {
+  opacity: 0.55583;
+  }
+  35% {
+  opacity: 0.47807;
+  }
+  40% {
+  opacity: 0.36559;
+  }
+  45% {
+  opacity: 0.64693;
+  }
+  50% {
+  opacity: 0.76019;
+  }
+  55% {
+  opacity: 0.28594;
+  }
+  60% {
+  opacity: 0.30313;
+  }
+  65% {
+  opacity: 0.61988;
+  }
+  70% {
+  opacity: 0.53455;
+  }
+  75% {
+  opacity: 0.47288;
+  }
+  80% {
+  opacity: 0.61428;
+  }
+  85% {
+  opacity: 0.60419;
+  }
+  90% {
+  opacity: 0.6003;
+  }
+  95% {
+  opacity: 0.46108;
+  }
+  100% {
+  opacity: 0.34387;
+  }
+}

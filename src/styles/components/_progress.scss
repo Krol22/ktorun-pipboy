@@ -1,0 +1,42 @@
+.progress {
+    height: 2.2rem;
+    width: 80px;
+    margin-right: 5px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-48%);
+
+    &__bar-container {
+        height: 100%;
+        background-color: rgb(73, 73, 73);
+    }
+
+    &__bar-container::after {
+        height: 6px;
+        position: absolute;
+        left: 50%;
+        z-index: 1;
+        content: '';
+        border: 3px solid transparent;
+        border-top: 5px solid $color-black;
+    }
+
+    &__bar-container::before {
+        height: 6px;
+        position: absolute;
+        z-index: 1;
+        content: '';
+        left: 50%;
+        bottom: 0;
+        border: 3px solid transparent;
+        border-bottom: 5px solid $color-black;
+    }
+
+    &__bar-value {
+        height: 100%;
+        background-color: $color-white;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+    }
+}

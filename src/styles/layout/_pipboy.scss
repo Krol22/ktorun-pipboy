@@ -1,0 +1,42 @@
+.pipboy {
+    min-width: 101rem;
+    width: 101rem;
+    padding: 4rem;
+    background-color: $color-black; 
+    margin-top: 5rem;
+    opacity: 0;
+    transition: transform calc(var(--loading-speed) * 2s) linear;
+}
+
+.pipboy--transition {
+    transition: transform calc(var(--loading-speed) * 2s) linear, opacity calc(var(--loading-speed) * 0.4s) steps(2);
+}
+
+.pipboy--visible {
+    opacity: 1;
+    animation: turnOn .2s;
+}
+
+@keyframes turnOn {
+    0% {
+        transform: translateY(-40vh)
+    }
+    30% {
+
+        transform: translateY(30vh)
+    }
+    50% {
+
+        transform: translateY(-30vh)
+    }
+    70% {
+
+        transform: translateY(15vh)
+    }
+    90% {
+        transform: translateY(-15vh)
+    }
+    100% {
+        transform: translateY(0vh)
+    }
+}
