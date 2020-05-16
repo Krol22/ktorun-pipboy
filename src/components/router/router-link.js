@@ -1,4 +1,4 @@
-import { Router } from './router.js';
+import { Router } from './new-router.js';
 
 export class RouterLink extends HTMLElement {
     constructor() {

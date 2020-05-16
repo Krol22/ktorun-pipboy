@@ -6,7 +6,7 @@ export class NotFoundComponent extends HTMLElement {
                 <div class="not-found__content">
                     <div class="not-found__icon"></div>
                     <p>PipOS Error &nbsp;- 404</p>
-                    <p>[ Module '<span id="module"></span>' Not Found ]</p>
+                    <p>[ Module '<span class="not-found__module" id="module"></span>' Not Found ]</p>
                 </div>
             </section>
         `;

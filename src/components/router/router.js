@@ -11,6 +11,7 @@ export const Router = {
         this.goTo(window.location.pathname);
 
         window.onpopstate = e => {
+            console.log(e);
             this.changeState(e.state.url); // this shit doesn't work
         };
     },
@@ -31,7 +32,8 @@ export const Router = {
 
         if(!this.routes[route.path]) {
             document.querySelector('body').dataset.notFoundModule = path;
-            this.goTo('/404');
+            this.swapContent('/404');
+            return;
         }
 
         this.currentLocation = route; 
@@ -60,6 +62,25 @@ export const Router = {
     },
     addRouteLink(routeLink) {
         this.routeLinks.push(routeLink);
+    },
+    swapContent(path) {
+        if(this.routes[path].resolve){
+            this.currentLocation.resolve = {};
+            this.routes[path]
+                .resolve(this.currentLocation)
+                .then(() => {
+                    this.element.innerHTML = this.routes[path].text;
+                }); 
+        } else {
+            this.element.innerHTML = this.routes[path].text;
+        }
+
+        // this.routerLinks.forEach(element => {
+            // element.dataset.active = false;
+            // if (element.dataset.link === this.currentLocation.path) {
+                // element.dataset.active = true;
+            // }
+        // });
     }
 };
 

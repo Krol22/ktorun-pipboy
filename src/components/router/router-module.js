@@ -1,4 +1,4 @@
-import { Router } from './router.js';
+import { Router } from './new-router.js';
 import { RouterLink } from './router-link.js';
 
 const RouterModule = {
