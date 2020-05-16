@@ -11,7 +11,7 @@ export const Router = {
         this.goTo(window.location.pathname);
 
         window.onpopstate = e => {
-            this.changeState(e.state.url);
+            this.changeState(e.state.url); // this shit doesn't work
         };
     },
     addPath: function(path, content){
@@ -30,6 +30,7 @@ export const Router = {
         let route = findRoute(path);
 
         if(!this.routes[route.path]) {
+            document.querySelector('body').dataset.notFoundModule = path;
             this.goTo('/404');
         }
 

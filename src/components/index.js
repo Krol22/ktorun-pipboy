@@ -15,6 +15,7 @@ import { ProgressComponent } from './main/progress-component';
 
 import { LoadingComponent } from './loading/loading-component.js';
 import { EastereggComponent } from './layout/easteregg-component.js';
+import { NotFoundComponent } from './main/not-found-component.js';
 
 import { SoundService } from './sound/sound.service.js';
 
@@ -39,7 +40,7 @@ RouterModule.init({
         text: '<uses-component></uses-component>' 
     },
     '/404': {
-        text: 'Test component',
+        text: '<not-found-component></not-found-component>'
     },
 });
 
@@ -58,3 +59,4 @@ customElements.define('loading-component', LoadingComponent);
 customElements.define('navigation-component', NavigationComponent);
 customElements.define('easteregg-component', EastereggComponent);
 customElements.define('progress-component', ProgressComponent);
+customElements.define('not-found-component', NotFoundComponent);
