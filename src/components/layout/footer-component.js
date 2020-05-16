@@ -17,15 +17,5 @@ export class FooterComponent extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = this.template;
-        this.buttons = this.querySelectorAll('router-link');
-
-        this.buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                this.buttons.forEach(btn => btn.classList.remove('btn--active'));
-                button.classList.add('btn--active');
-
-                SoundService.play('select');
-            });
-        });
     }
 }

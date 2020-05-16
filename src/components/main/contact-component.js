@@ -12,7 +12,7 @@ export class ContactComponent extends HTMLElement {
                     <a class="link" href="https://www.linkedin.com/in/karol-toru%C5%84-123503121/" target="blank"><em>LinkedIn</em></a> or 
                     <a class="link" href="https://twitter.com/krol22ee" target="blank"><em>Twitter</em></a>.
                 </p>
-                <div id="send-mail-button" class="btn btn--active">Send mail</div>
+                <div id="send-mail-button" class="btn btn--bordered">Send mail</div>
             </section>
         `;
     }

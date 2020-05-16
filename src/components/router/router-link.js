@@ -1,18 +1,25 @@
-import { Router } from './router.js';
+import { Router } from './new-router.js';
 
 export class RouterLink extends HTMLElement {
     constructor() {
         super();
     }
 
-    connectedCallback() {
-        if (this.dataset.link === Router.currentLocation.path) {
-            this.classList.add('btn--active');
-        }
+    static get observedAttributes() {
+        return ['data-active'];
+    }
 
+    connectedCallback() {
         this.addEventListener('click', (e) => {
             e.preventDefault();
             Router.goTo(this.dataset.link);
         });
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        const value = newValue === 'true';
+        if (name === 'data-active') {
+            this.classList.toggle('active', value);
+        }
     }
 }

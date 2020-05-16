@@ -1,10 +1,13 @@
-import { Router } from './router.js';
+import { Router } from './new-router.js';
 import { RouterLink } from './router-link.js';
 
 const RouterModule = {
     init(initialRoutes) {
-        Router.init(initialRoutes);
         customElements.define('router-link', RouterLink);
+
+        window.addEventListener('load', () => {
+            Router.init(initialRoutes);
+        });
     }
 };
 

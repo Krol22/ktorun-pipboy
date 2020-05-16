@@ -1,0 +1,53 @@
+.not-found {
+    position: relative;
+    height: $section-height;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__module {
+        display: inline-block;
+        max-width: 35%;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        transform: translateY(0.45rem);
+    }
+
+    &__content > * {
+        margin-bottom: 1.5rem;
+    }
+
+    &__content {
+        max-width: 65%;
+        text-align: left;
+        display: inline-block;
+    }
+
+    .not-found__icon {
+        position: relative;
+        display: inline-block;
+        border: 3px solid $color-white;
+        box-shadow: 0 0 8px rgba($color-white, 0.7), inset 0 0 8px rgba($color-white, 0.7);
+        border-radius: 3px;
+        background-color: transparent;
+        margin-bottom: 2rem; 
+        width: 70px;
+        height: 70px;
+
+        &:after {
+            content: '';
+            border: 2px solid $color-white;
+            border-radius: 1px;
+            width: 97%;
+            display: block;
+            position: absolute;
+            box-shadow: 0 0 8px rgba($color-white, 0.7);
+            transform-origin: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+}
+

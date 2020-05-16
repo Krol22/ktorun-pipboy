@@ -6,6 +6,7 @@
     margin-top: 5rem;
     opacity: 0;
     transition: transform calc(var(--loading-speed) * 2s) linear;
+    overflow: hidden;
 }
 
 .pipboy--transition {
