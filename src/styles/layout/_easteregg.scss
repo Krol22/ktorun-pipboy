@@ -1,12 +1,9 @@
 .easteregg {
-    position: absolute;
-    bottom: 0;
     text-align: center;
-    transform: translateX(-50%);
-    left: 50%;
+    margin-top: 15rem;
     transition: all ease-in-out 0.2s;
 }
 
 .easteregg--loading {
-    transform: translateX(-50%) translateY(10vh);
+    transform: translateY(10vh);
 }

@@ -57,6 +57,7 @@ export class LoadingComponent extends HTMLElement {
 
             this.body.dataset.restart = 'false';
             this.body.dataset.restarting = 'true';
+            this.body.style.overflow = 'hidden';
 
             this.restartLoadingContainer.classList.remove('loading-container__restart--loaded');
             this.firstAnimationContainer.classList.remove('loading-container__first--loaded');
@@ -150,6 +151,7 @@ export class LoadingComponent extends HTMLElement {
         this.loadingComponent.style.display = 'none';
         this.pipboy.classList.add('pipboy--visible');
         this.body.dataset.restarting = 'false';
+        this.body.style.overflow = 'visible';
         this.eastereggContainer.classList.remove('easteregg--loading');
     }
 }
