@@ -38,6 +38,9 @@ RouterModule.init({
     '/uses': { 
         text: '<uses-component></uses-component>' 
     },
+    '/404': {
+        text: 'Test component',
+    },
 });
 
 SoundService.init();

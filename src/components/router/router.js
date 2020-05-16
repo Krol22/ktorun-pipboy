@@ -5,15 +5,15 @@ export const Router = {
     init: function(routes) {
         this.routes = routes ? routes : {};
         this.element = document.getElementsByTagName('router')[0];
+        this.routerLinks = [...document.getElementsByTagName('router-link')];
         this.history = [];
 
         this.goTo(window.location.pathname);
 
         window.onpopstate = e => {
-            this.goTo(e.state.url);
+            this.changeState(e.state.url);
         };
     },
-
     addPath: function(path, content){
         if(this.routes[path]){
             throw new Error('Content in this path already exists!');
@@ -21,27 +21,44 @@ export const Router = {
 
         this.routes[path] = content;
     },
+    changeState: function(path) {
+        this.currentLocation = findRoute(path);
+        window.history.replaceState({ url: path }, '', path);
+        this.changeContent();
+    },
     goTo: function(path) {
         let route = findRoute(path);
 
         if(!this.routes[route.path]) {
-            throw new Error('Path not recognized!');
+            this.goTo('/404');
         }
 
         this.currentLocation = route; 
-
-        window.history.pushState({ url: path }, path);
-
-        if(this.routes[route.path].resolve){
+        window.history.pushState({ url: path }, '', path);
+        this.changeContent();
+    },
+    changeContent() {
+        const { path } = this.currentLocation;
+        if(this.routes[path].resolve){
             this.currentLocation.resolve = {};
-            this.routes[route.path]
+            this.routes[path]
                 .resolve(this.currentLocation)
                 .then(() => {
-                    this.element.innerHTML = this.routes[route.path].text;
+                    this.element.innerHTML = this.routes[path].text;
                 }); 
         } else {
-            this.element.innerHTML = this.routes[route.path].text;
+            this.element.innerHTML = this.routes[path].text;
         }
+
+        this.routerLinks.forEach(element => {
+            element.dataset.active = false;
+            if (element.dataset.link === this.currentLocation.path) {
+                element.dataset.active = true;
+            } 
+        });
+    },
+    addRouteLink(routeLink) {
+        this.routeLinks.push(routeLink);
     }
 };
 

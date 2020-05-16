@@ -1,14 +1,5 @@
 .btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    margin: auto;
-    cursor: pointer;
-    background-color: $color-black;
-    border: $border-width solid transparent;
-    user-select: none;
-
     // defaulting <button> element
-
     outline: none;
     color: inherit;
     font-size: inherit;
@@ -16,7 +7,15 @@
     font-weight: inherit;
     letter-spacing: inherit;
 
-    &--active {
-        border-color: $color-white;
-    }
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: auto;
+    cursor: pointer;
+    background-color: $color-black;
+    border: $border-width solid transparent;
+    user-select: none;
+}
+
+.active {
+    border-color: $color-white;
 }

@@ -3,7 +3,7 @@ export class AboutComponent extends HTMLElement {
         super();
         this.template = `
             <section class="about">
-                <h2 class="heading-secondary u-margin-top"> About me </h2>
+                <h2 class="heading-secondary u-margin-top u-center-element"> About me </h2>
                 <p class="paragraph">
                     Hello my name is Karol and I'm software developer working at <a href="https://brainhub.eu/" target="_blank">Brainhub</a>.
                     Usually I spend my time on coding applications, websites or games with JavaScript technologies.
