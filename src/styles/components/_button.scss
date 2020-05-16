@@ -16,6 +16,10 @@
     user-select: none;
 }
 
+.btn--bordered {
+    border-color: $color-white;
+}
+
 .active {
     border-color: $color-white;
 }

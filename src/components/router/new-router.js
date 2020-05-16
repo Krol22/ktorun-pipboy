@@ -1,11 +1,3 @@
-/*
-    
-    1. Handle normal route change,
-    2. Handle router links change,
-    3. Handle 404 page,
-    4. Properly handle history prev/next,
-*/
-
 export const Router = {
     init: function (routes) {
         this.routes = routes ? routes : [];
@@ -32,7 +24,6 @@ export const Router = {
     goTo: function (path) {
         const route = findRoute(path);
 
-        // not sure if i need here history change state,
         window.history.pushState({ url: path }, '', path);
 
         if (!this.routes[route.path]) {
