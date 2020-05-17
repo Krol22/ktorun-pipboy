@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 
 body {
-    font-family: 'Inconsolata', monospace;
-    font-weight: 700;
-    font-size: 2.5rem;
-    color: $color-white;
-    text-shadow: 0 0 10px $color-white;
-    letter-spacing: .4rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: $color-white;
+  text-shadow: 0 0 10px $color-white;
+  letter-spacing: 0.4rem;
 }
 
 a {
-    appearance: none;
-    color: $color-white;
+  appearance: none;
+  color: $color-white;
 }
 
 .link:link,
@@ -19,9 +19,9 @@ a {
 .link:-webkit-any-link,
 .link:active,
 .link:visited {
-    color: $color-white;
+  color: $color-white;
 }
 
 .paragraph {
-    margin: 75px 10px;
+  margin: 75px 10px;
 }

@@ -1,1 +1,1 @@
-export const LOADING_SPEED = .7;
+export const LOADING_SPEED = 0.7;

@@ -1,49 +1,49 @@
 .skills {
-    display: flex;
+  display: flex;
+  position: relative;
+  height: $section-height;
+
+  &__list {
     position: relative;
-    height: $section-height;
+    left: -2rem;
+    padding-left: 2rem;
 
-    &__list {
-        position: relative;
-        left: -2rem;
-        padding-left: 2rem;
+    direction: rtl;
+    overflow-y: scroll;
+    list-style-type: unset;
+    width: 38%;
+    left: calc(#{$border-width} * -1);
+  }
 
-        direction: rtl;
-        overflow-y: scroll;
-        list-style-type: unset;
-        width: 38%;
-        left: calc(#{$border-width} * -1);
+  &__details {
+    position: absolute;
+    width: 60%;
+    right: 0;
+  }
+
+  &__icon {
+    text-align: center;
+    padding: 5rem;
+  }
+
+  &__icon-image {
+    height: 30rem;
+  }
+
+  &__list-item {
+    margin: 0;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    border: $border-width solid transparent;
+
+    &--active {
+      border-color: $color-white;
     }
+  }
 
-    &__details {
-        position: absolute;
-        width: 60%;
-        right: 0;
-    }
-
-    &__icon {
-        text-align: center;
-        padding: 5rem;
-    }
-
-    &__icon-image {
-        height: 30rem;
-    }
-
-    &__list-item {
-        margin: 0;
-        padding: 1rem 1.5rem;
-        cursor: pointer;
-        border: $border-width solid transparent;
-
-        &--active {
-            border-color: $color-white;
-        }
-    }
-
-    &__text {
-        padding: 1rem .5rem 0 .5rem;
-        text-align: justify;
-        border-top: $border-width solid $color-white;
-    }
+  &__text {
+    padding: 1rem 0.5rem 0 0.5rem;
+    text-align: justify;
+    border-top: $border-width solid $color-white;
+  }
 }

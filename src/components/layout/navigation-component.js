@@ -1,10 +1,9 @@
-import { SoundService } from '../sound/sound.service';
+import { SoundService } from "../sound/sound.service";
 
 export class NavigationComponent extends HTMLElement {
-
-    constructor() {
-        super();
-        this.template = `
+  constructor() {
+    super();
+    this.template = `
             <div id="open-btn" class="nav__open-btn">&equiv;</div>
             <nav id="menu" class="nav">
                 <h2>Settings</h2>
@@ -28,57 +27,58 @@ export class NavigationComponent extends HTMLElement {
 
             </nav>
         `;
+  }
+
+  connectedCallback() {
+    this.innerHTML = this.template;
+
+    this.select = this.querySelector("#color-select");
+    this.menu = this.querySelector("#menu");
+    this.soundCheckbox = this.querySelector("#sound-checkbox");
+    this.openMenuButton = this.querySelector("#open-btn");
+    this.closeMenuButton = this.querySelector("#close-btn");
+
+    this.soundCheckbox.checked =
+      localStorage.getItem("soundEnabled") === "true";
+
+    this.openMenuButton.addEventListener("click", () => {
+      this.menu.classList.add("nav--open");
+    });
+
+    this.closeMenuButton.addEventListener("click", () => {
+      this.menu.classList.remove("nav--open");
+    });
+
+    this.soundCheckbox.addEventListener("change", (e) => {
+      SoundService.toggleSound(e.target.checked);
+    });
+
+    this.setupColorFilters();
+  }
+
+  // setups color filters for browsers (disabled for mozilla because of poor performance)
+  setupColorFilters() {
+    const isMoz = !!(navigator.userAgent.includes("Firefox") > 0);
+
+    if (!isMoz) {
+      this.currentColor = localStorage.getItem("pipboy-color");
+      this.currentColor = this.currentColor || "white";
+      this.crtFilter = document.querySelector(".crt-color-filter");
+      this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);
+
+      this.select.addEventListener("change", (e) => {
+        this.crtFilter.classList.remove(
+          `crt-color-filter--${this.currentColor}`
+        );
+        this.currentColor = e.target.value;
+        localStorage.setItem("pipboy-color", this.currentColor);
+        this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);
+      });
+
+      this.select.value = localStorage.getItem("pipboy-color");
+    } else {
+      this.selectColorContainer = this.querySelector("#select-color-container");
+      this.selectColorContainer.style.display = "none";
     }
-
-    connectedCallback() {
-        this.innerHTML = this.template; 
-
-        this.select = this.querySelector('#color-select');
-        this.menu = this.querySelector('#menu');
-        this.soundCheckbox = this.querySelector('#sound-checkbox');
-        this.openMenuButton = this.querySelector('#open-btn');
-        this.closeMenuButton = this.querySelector('#close-btn');
-
-        this.soundCheckbox.checked = (localStorage.getItem('soundEnabled') === 'true');
-
-        this.openMenuButton.addEventListener('click', () => {
-            this.menu.classList.add('nav--open');
-        });
-
-        this.closeMenuButton.addEventListener('click', () => {
-            this.menu.classList.remove('nav--open');
-        });
-
-        this.soundCheckbox.addEventListener('change', (e) => {
-            SoundService.toggleSound(e.target.checked);
-        });
-
-        this.setupColorFilters();
-    }
-
-    // setups color filters for browsers (disabled for mozilla because of poor performance)
-    setupColorFilters() {
-        const isMoz = !!(navigator.userAgent.includes('Firefox') > 0);
-        
-        if (!isMoz) {
-            this.currentColor = localStorage.getItem('pipboy-color');
-            this.currentColor = this.currentColor || 'white';
-            this.crtFilter = document.querySelector('.crt-color-filter');
-            this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
-
-            this.select.addEventListener('change', (e) => {
-                this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
-                this.currentColor = e.target.value;
-                localStorage.setItem('pipboy-color', this.currentColor);
-                this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
-            });
-
-            this.select.value = localStorage.getItem('pipboy-color');
-        } else {
-            this.selectColorContainer = this.querySelector('#select-color-container');
-            this.selectColorContainer.style.display = 'none';
-        }
-
-    }
-
+  }
 }

@@ -1,7 +1,7 @@
 export class AboutComponent extends HTMLElement {
-    constructor() {
-        super();
-        this.template = `
+  constructor() {
+    super();
+    this.template = `
             <section class="about">
                 <h2 class="heading-secondary u-margin-top u-center-element"> About me </h2>
                 <p class="paragraph">
@@ -13,9 +13,9 @@ export class AboutComponent extends HTMLElement {
                 </p>
             </section>
         `;
-    }
+  }
 
-    connectedCallback() {
-        this.innerHTML = this.template;
-    }
+  connectedCallback() {
+    this.innerHTML = this.template;
+  }
 }

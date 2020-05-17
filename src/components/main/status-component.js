@@ -1,10 +1,10 @@
-import statusImg from '../../assets/images/stats_main_100.png';
+import statusImg from "../../assets/images/stats_main_100.png";
 
 export class StatusComponent extends HTMLElement {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.template = `
+    this.template = `
             <section class="status">
                 <img alt="status-image" class="status__image" src=".${statusImg}" />
                 <div class="status__text">
@@ -18,16 +18,16 @@ export class StatusComponent extends HTMLElement {
                 </div>
             </section>
         `;
-    }
+  }
 
-    connectedCallback() {
-        this.innerHTML = this.template;
+  connectedCallback() {
+    this.innerHTML = this.template;
 
-        var endDate = new Date();
-        var startDate = new Date(1994, 3, 4);
+    var endDate = new Date();
+    var startDate = new Date(1994, 3, 4);
 
-        var lvlYears = endDate.getYear() - startDate.getYear();
+    var lvlYears = endDate.getYear() - startDate.getYear();
 
-        this.querySelector('#level').innerHTML = `${lvlYears}`;
-    }
+    this.querySelector("#level").innerHTML = `${lvlYears}`;
+  }
 }

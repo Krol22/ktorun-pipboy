@@ -1,13 +1,12 @@
-import { SoundService } from '../sound/sound.service';
+import { SoundService } from "../sound/sound.service";
 
 export class SettingsComponent extends HTMLElement {
+  constructor() {
+    super();
 
-    constructor() {
-        super();
+    this.currentColor = localStorage.getItem("pipboy-color");
 
-        this.currentColor = localStorage.getItem('pipboy-color');
-
-        this.template = `
+    this.template = `
             <div id="menu" class="settings">
                 <h2 class="heading-secondary u-margin-top"> Settings </h2>
                 <div class="settings__group">
@@ -34,31 +33,31 @@ export class SettingsComponent extends HTMLElement {
                 </div>
             </div>
         `;
-    }
+  }
 
-    connectedCallback() {
-        this.innerHTML = this.template;
+  connectedCallback() {
+    this.innerHTML = this.template;
 
-        this.crtFilter = document.querySelector('.crt-color-filter');
-        this.select = this.querySelector('#color-select');
-        this.menu = this.querySelector('#menu');
-        this.soundCheckbox = this.querySelector('#sound-checkbox');
-        this.openMenuButton = this.querySelector('#open-btn');
-        this.closeMenuButton = this.querySelector('#close-btn');
+    this.crtFilter = document.querySelector(".crt-color-filter");
+    this.select = this.querySelector("#color-select");
+    this.menu = this.querySelector("#menu");
+    this.soundCheckbox = this.querySelector("#sound-checkbox");
+    this.openMenuButton = this.querySelector("#open-btn");
+    this.closeMenuButton = this.querySelector("#close-btn");
 
-        this.soundCheckbox.checked = (localStorage.getItem('soundEnabled') === 'true');
-        this.select.value = localStorage.getItem('pipboy-color');
+    this.soundCheckbox.checked =
+      localStorage.getItem("soundEnabled") === "true";
+    this.select.value = localStorage.getItem("pipboy-color");
 
-        this.select.addEventListener('change', (e) => {
-            this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
-            this.currentColor = e.target.value;
-            localStorage.setItem('pipboy-color', this.currentColor);
-            this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);           
-        });
+    this.select.addEventListener("change", (e) => {
+      this.crtFilter.classList.remove(`crt-color-filter--${this.currentColor}`);
+      this.currentColor = e.target.value;
+      localStorage.setItem("pipboy-color", this.currentColor);
+      this.crtFilter.classList.add(`crt-color-filter--${this.currentColor}`);
+    });
 
-        this.soundCheckbox.addEventListener('change', (e) => {
-            SoundService.toggleSound(e.target.checked);
-        });
-    }
-
+    this.soundCheckbox.addEventListener("change", (e) => {
+      SoundService.toggleSound(e.target.checked);
+    });
+  }
 }
