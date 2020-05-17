@@ -24,7 +24,9 @@
     "style-loader": "^0.20.2"
   },
   "husky": {
-    "pre-commit": "npm run lint"
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "dependencies": {
     "regenerator-runtime": "^0.13.5"
