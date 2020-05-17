@@ -38,21 +38,21 @@ export class LoadingComponent extends HTMLElement {
         document.documentElement.style.setProperty('--loading-speed', LOADING_SPEED);
 
         this.body = document.querySelector('body');
-        this.pipboy = document.querySelectorAll('.pipboy')[0];
-        this.loadingComponent = document.querySelectorAll('.loading-component')[0];
-        this.loadingTextContainer = document.querySelectorAll('#loading-text')[0];
-        this.restartTextContainer = document.querySelectorAll('#restart-text')[0];
-        this.restartTextDotsContainer = document.querySelectorAll('#restart-text__dots')[0];
-        this.restartLoadingContainer = document.querySelectorAll('.loading-container__restart')[0];
-        this.firstAnimationContainer = document.querySelectorAll('.loading-container__first')[0];
-        this.secondAnimationContainer = document.querySelectorAll('.loading-container__second')[0];
+        this.pipboy = document.querySelector('.pipboy');
+        this.loadingComponent = document.querySelector('.loading-component');
+        this.loadingTextContainer = document.querySelector('#loading-text');
+        this.restartTextContainer = document.querySelector('#restart-text');
+        this.restartTextDotsContainer = document.querySelector('#restart-text__dots');
+        this.restartLoadingContainer = document.querySelector('.loading-container__restart');
+        this.firstAnimationContainer = document.querySelector('.loading-container__first');
+        this.secondAnimationContainer = document.querySelector('.loading-container__second');
 
         window.setInterval(() => {
             if (this.body.dataset.restart !== 'true') {
                 return;
             }
 
-            this.eastereggContainer = document.querySelectorAll('.easteregg')[0];
+            this.eastereggContainer = document.querySelector('.easteregg');
             this.pipboy.classList.add('pipboy--transition');
 
             this.body.dataset.restart = 'false';
@@ -71,6 +71,8 @@ export class LoadingComponent extends HTMLElement {
             this.restartTextContainer.innerHTML = '';
             this.restartTextDotsContainer.innerHTML = '';
 
+            this.pipboy.classList.remove('pipboy--visible');
+
             this.restartAnimation();
         }, 50);
     }
@@ -78,39 +80,33 @@ export class LoadingComponent extends HTMLElement {
     async restartAnimation() {
         let loadingCounter = 0;
 
-        this.pipboy.classList.remove('pipboy--visible');
         await delay(2000 * LOADING_SPEED);
-
-
         this.loadingComponent.style.display = 'block';
         this.restartLoadingContainer.style.display = 'inline-block';
 
         await delay(3000 * LOADING_SPEED);
-
-        const interval = setInterval(async () => {
+        while(loadingCounter <= this.restartText.length) {
             loadingCounter++;
-
             this.restartTextContainer.innerHTML = this.restartText.substring(0, loadingCounter);
+            await delay(30 * LOADING_SPEED);
+        }
 
-            if (loadingCounter > this.restartText.length) {
-                clearInterval(interval);
-                await delay(1000 * LOADING_SPEED);
-                let dots = 0;
-                while(dots < 5) {
-                    dots++;
-                    this.restartTextDotsContainer.innerHTML = Array.from(Array(dots)).map(() => `.`).join('');
-                    await delay(2000 * LOADING_SPEED);
-                }
-                this.restartLoadingContainer.classList.add('loading-container__restart--loaded');
-                await delay(4000 * LOADING_SPEED);
-                this.restartLoadingContainer.style.display = 'none';
-                await delay(1000 * LOADING_SPEED);
+        await delay(1000 * LOADING_SPEED);
+        let dots = 0;
+        while(dots < 5) {
+            dots++;
+            this.restartTextDotsContainer.innerHTML = Array.from(Array(dots)).map(() => `.`).join('');
+            await delay(2000 * LOADING_SPEED);
+        }
+        this.restartLoadingContainer.classList.add('loading-container__restart--loaded');
 
-                this.firstAnimationContainer.style.display = 'inline-block';
-                this.pipboy.classList.remove('pipboy--transition');
-                this.firstAnimation();
-            }
-        }, 30 * LOADING_SPEED);
+        await delay(4000 * LOADING_SPEED);
+        this.restartLoadingContainer.style.display = 'none';
+
+        await delay(1000 * LOADING_SPEED);
+        this.firstAnimationContainer.style.display = 'inline-block';
+        this.pipboy.classList.remove('pipboy--transition');
+        this.firstAnimation();
     }
 
     async firstAnimation() {
@@ -118,10 +114,10 @@ export class LoadingComponent extends HTMLElement {
         let blinkCounter = 0;
 
         await delay(1500 * LOADING_SPEED);
-
-        const interval = setInterval(async () => {
+        while (loadingCounter <= this.loadingText.length) {
             loadingCounter++;
             blinkCounter++;
+
             if (this.loadingText.substring(loadingCounter, loadingCounter + 5) === '</br>') {
                 this.loadingTextContainer.innerHTML += '</br>';
                 loadingCounter+=5;
@@ -129,16 +125,16 @@ export class LoadingComponent extends HTMLElement {
 
             this.loadingTextContainer.innerHTML = this.loadingText.substring(0, loadingCounter);
 
-            if (Math.floor(blinkCounter / 10) % 2 === 0)
+            if (Math.floor(blinkCounter / 10) % 2 === 0) {
                 this.loadingTextContainer.innerHTML += '<div class="caret">&#9608;</div>';
-
-            if (loadingCounter > this.loadingText.length) {
-                clearInterval(interval);
-                await delay(2000 * LOADING_SPEED);
-                this.firstAnimationContainer.classList.add('loading-container__first--loaded');
-                this.secondAnimation();
             }
-        }, 30 * LOADING_SPEED);
+
+            await delay(30 * LOADING_SPEED);
+        }
+
+        await delay(2000 * LOADING_SPEED);
+        this.firstAnimationContainer.classList.add('loading-container__first--loaded');
+        this.secondAnimation();
     }
 
     async secondAnimation() {
