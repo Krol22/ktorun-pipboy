@@ -15,7 +15,7 @@ export class UsesComponent extends HTMLElement {
                 <div class="uses__items" data-item="items">
                     <div class="uses__item" data-item="terminal">
                         <div class="uses__icon">
-                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                            <img class="uses__icon-img" src=${itermIcon} alt="vaultboy-computer-image" />
                         </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
@@ -33,7 +33,7 @@ export class UsesComponent extends HTMLElement {
                     </div>
                     <div class="uses__item" data-item="editor">
                         <div class="uses__icon">
-                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                            <img class="uses__icon-img" src=${itermIcon} alt="vaultboy-computer-image" />
                         </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
@@ -52,7 +52,7 @@ export class UsesComponent extends HTMLElement {
                     </div>
                     <div class="uses__item" data-item="macbook">
                         <div class="uses__icon">
-                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                            <img class="uses__icon-img" src=${itermIcon} alt="vaultboy-computer-image" />
                         </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
@@ -71,7 +71,7 @@ export class UsesComponent extends HTMLElement {
                     </div>
                     <div class="uses__item" data-item="keyboard">
                         <div class="uses__icon">
-                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                            <img class="uses__icon-img" src=${itermIcon} alt="vaultboy-computer-image" />
                         </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
@@ -91,7 +91,7 @@ export class UsesComponent extends HTMLElement {
                     </div>
                     <div class="uses__item" data-item="monitor">
                         <div class="uses__icon">
-                            <img class="uses__icon-img" src=${itermIcon} alt="iterm" />
+                            <img class="uses__icon-img" src=${itermIcon} alt="vaultboy-computer-image" />
                         </div> 
                         <div class="uses__description">
                             <div class="uses__condition u-right-top-to-bottom">
