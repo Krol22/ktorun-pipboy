@@ -1,4 +1,4 @@
-import { delay } from "../helpers/delay.helper";
+import { delay } from "../utils/delay.helper";
 import loading from "../../assets/images/loading.gif";
 import { LOADING_SPEED } from "../constants";
 

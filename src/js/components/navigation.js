@@ -1,5 +1,8 @@
-import { SoundService } from "../sound/sound.service";
+/*
 
+  Not used anymore but I'll keep it for future settings page
+
+*/
 export class NavigationComponent extends HTMLElement {
   constructor() {
     super();

@@ -1,5 +1,3 @@
-import { SoundService } from "../sound/sound.service.js";
-
 export class ContactComponent extends HTMLElement {
   constructor() {
     super();
@@ -21,12 +19,7 @@ export class ContactComponent extends HTMLElement {
 
     this.sendMailButton = this.querySelector("#send-mail-button");
     this.sendMailButton.addEventListener("click", () => {
-      SoundService.play("select");
       location.href = "mailto:krol22ee@gmail.com";
-    });
-
-    this.sendMailButton.addEventListener("mouseover", () => {
-      SoundService.play("highlight");
     });
   }
 }
