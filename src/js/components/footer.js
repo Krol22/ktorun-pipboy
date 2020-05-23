@@ -1,9 +1,7 @@
-import { SoundService } from '../sound/sound.service.js';
-
 export class FooterComponent extends HTMLElement {
-    constructor() {
-        super();
-        this.template = `
+  constructor() {
+    super();
+    this.template = `
             <footer class="pipboy-footer">
                 <div class="pipboy-footer__list u-bottom-to-top">
                     <router-link id="status-btn" class="pipboy-footer__item btn" data-link="/">Status</router-link>
@@ -13,9 +11,9 @@ export class FooterComponent extends HTMLElement {
                 </div>
             </footer>
         `;
-    }
+  }
 
-    connectedCallback() {
-        this.innerHTML = this.template;
-    }
+  connectedCallback() {
+    this.innerHTML = this.template;
+  }
 }

@@ -1,101 +1,101 @@
 .nav {
-    position: fixed;
+  position: fixed;
+  border: $border-width solid $color-white;
+  padding: 1.5rem 2rem;
+  top: 0;
+  right: 0;
+  width: 22rem;
+  background-color: $color-black;
+  z-index: 20;
+  transition: all 0.4s ease-out;
+  transform: translateX(22rem);
+
+  font-size: 2rem;
+
+  &--open {
+    transform: translateX(0);
+  }
+
+  &__group {
+    margin: 2rem 0;
+  }
+
+  &__label {
+    display: block;
+    user-select: none;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__select {
     border: $border-width solid $color-white;
-    padding: 1.5rem 2rem;
+    background-color: $color-black;
+    padding: 1rem 2rem;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+
+    // to mixin
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &__checkbox-input {
+    visibility: hidden;
+  }
+
+  &__checkbox-input:checked ~ &__label &__checkbox {
+    &::after {
+      position: absolute;
+      margin-top: 0.2rem;
+      margin-left: 0.2rem;
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      content: " ";
+      background-color: $color-white;
+    }
+  }
+
+  &__checkbox {
+    content: " ";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: $border-width solid $color-white;
+  }
+
+  &__exit {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    padding: 0;
+    top: 1rem;
+    right: 1rem;
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  &__open-btn {
+    font-size: 4rem;
+    text-align: right;
+    padding: 0.2rem;
+    line-height: 0.5;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
     top: 0;
     right: 0;
-    width: 22rem;
-    background-color: $color-black;
-    z-index: 20;
-    transition: all .4s ease-out;
-    transform: translateX(22rem);
-
-    font-size: 2rem;
-
-    &--open {
-        transform: translateX(0);
-    }
-
-    &__group {
-        margin: 2rem 0;
-    }
-
-    &__label {
-        display: block;
-        user-select: none;
-        position: relative;
-        cursor: pointer;
-    }
-
-    &__select {
-        border: $border-width solid $color-white;
-        background-color: $color-black;
-        padding: 1rem 2rem;
-        border-radius: 0;
-        cursor: pointer;
-        outline: none;
-
-        // to mixin
-        font-size: inherit;
-        font-family: inherit;
-        font-weight: inherit;
-        color: inherit;
-        letter-spacing: inherit;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    }
-
-    &__checkbox-input {
-        visibility: hidden;
-    }
-
-    &__checkbox-input:checked ~ &__label &__checkbox {
-        &::after {
-            position: absolute;
-            margin-top: .2rem;
-            margin-left: .2rem;
-            width: 1rem;
-            height: 1rem;
-            display: inline-block;
-            content: ' ';
-            background-color: $color-white;
-        }
-    }
-
-    &__checkbox {
-        content: ' ';
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        border: $border-width solid $color-white;
-    }
-
-    &__exit {
-        display: inline-block;
-        cursor: pointer;
-        position: absolute;
-        padding: 0;
-        top: 1rem;
-        right: 1rem;
-        font-size: 4rem;
-        line-height: 1;
-    }
-
-    &__open-btn {
-        font-size: 4rem;
-        text-align: right;
-        padding: .2rem;
-        line-height: .5;
-        width: 6rem;
-        height: 6rem;
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: inline-block;
-        color: $color-black;
-        background-color: $color-white;
-        clip-path: polygon(0 0, 100% 0, 100% 100%);
-        cursor: pointer;
-    }
+    display: inline-block;
+    color: $color-black;
+    background-color: $color-white;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    cursor: pointer;
+  }
 }

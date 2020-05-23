@@ -1,18 +1,17 @@
 .pipboy-footer {
-    height: 3.5rem;
-    margin-top: 3rem;
-    position: relative;
+  height: 3.5rem;
+  margin-top: 3rem;
+  position: relative;
 
-    &__list {
-        border-bottom: $border-width solid $color-white;
-        position: absolute;
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-    }    
+  &__list {
+    border-bottom: $border-width solid $color-white;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
 
-    &__item {
-        margin-bottom: -2.2rem;
-    }
-
+  &__item {
+    margin-bottom: -2.2rem;
+  }
 }

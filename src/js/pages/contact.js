@@ -1,10 +1,7 @@
-import { SoundService } from '../sound/sound.service.js';
-
 export class ContactComponent extends HTMLElement {
-
-    constructor() {
-        super();
-        this.template = `
+  constructor() {
+    super();
+    this.template = `
             <section class="contact">
                 <h2 class="heading-secondary u-margin-top"> Contact Me </h2>
                 <p class="contact__text"> Please feel free to contact me if you have any questions at: <em class="u-itallic-text">krol22ee@gmail.com</em>. You can also find me on: 
@@ -15,19 +12,14 @@ export class ContactComponent extends HTMLElement {
                 <div id="send-mail-button" class="btn btn--bordered">Send mail</div>
             </section>
         `;
-    }
+  }
 
-    connectedCallback() {
-        this.innerHTML = this.template;
+  connectedCallback() {
+    this.innerHTML = this.template;
 
-        this.sendMailButton = this.querySelector('#send-mail-button');
-        this.sendMailButton.addEventListener('click', () => {
-            SoundService.play('select');
-            location.href = 'mailto:krol22ee@gmail.com';
-        });
-
-        this.sendMailButton.addEventListener('mouseover', () => {
-            SoundService.play('highlight');
-        });
-    }
+    this.sendMailButton = this.querySelector("#send-mail-button");
+    this.sendMailButton.addEventListener("click", () => {
+      location.href = "mailto:krol22ee@gmail.com";
+    });
+  }
 }

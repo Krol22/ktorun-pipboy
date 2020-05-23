@@ -1,25 +1,25 @@
 .btn {
-    // defaulting <button> element
-    outline: none;
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: inherit;
-    letter-spacing: inherit;
+  // defaulting <button> element
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
 
-    display: inline-block;
-    padding: 1rem 2rem;
-    margin: auto;
-    cursor: pointer;
-    background-color: $color-black;
-    border: $border-width solid transparent;
-    user-select: none;
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin: auto;
+  cursor: pointer;
+  background-color: $color-black;
+  border: $border-width solid transparent;
+  user-select: none;
 }
 
 .btn--bordered {
-    border-color: $color-white;
+  border-color: $color-white;
 }
 
 .active {
-    border-color: $color-white;
+  border-color: $color-white;
 }
