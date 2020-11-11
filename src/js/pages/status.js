@@ -1,4 +1,4 @@
-import statusImg from "../../assets/images/stats_main_100.png";
+import statusImgSrc from "../../assets/images/stats_main_100.png";
 
 export class StatusComponent extends HTMLElement {
   constructor() {
@@ -6,7 +6,13 @@ export class StatusComponent extends HTMLElement {
 
     this.template = `
             <section class="status">
-                <img alt="status-image" class="status__image" src=".${statusImg}" />
+                <div id="image-placeholder">
+                    <img 
+                      alt="status-image"
+                      class="status__image"
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                    />
+                </div>
                 <div class="status__text">
                     <h2 class="heading-secondary u-margin-bottom-30">
                         Karol Toruń
@@ -23,10 +29,22 @@ export class StatusComponent extends HTMLElement {
   connectedCallback() {
     this.innerHTML = this.template;
 
-    var endDate = new Date();
-    var startDate = new Date(1994, 3, 4);
+    const statusImg = new Image();
 
-    var lvlYears = endDate.getYear() - startDate.getYear();
+    statusImg.addEventListener("load", () => {
+      const imagePlaceholderContainer = this.querySelector("#image-placeholder");
+      const imagePlaceholder = imagePlaceholderContainer.querySelector("img");
+
+      imagePlaceholderContainer.removeChild(imagePlaceholder);
+      imagePlaceholderContainer.appendChild(statusImg);
+    });
+
+    statusImg.src = `.${statusImgSrc}`;
+
+    const endDate = new Date();
+    const startDate = new Date(1994, 3, 4);
+
+    const lvlYears = endDate.getYear() - startDate.getYear();
 
     this.querySelector("#level").innerHTML = `${lvlYears}`;
   }
