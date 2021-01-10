@@ -6,7 +6,7 @@ export class StatusComponent extends HTMLElement {
 
     this.template = `
             <section class="status">
-                <img alt="status-image" class="status__image" src=".${statusImg}" />
+                <img class="status__image" src=".${statusImg}" />
                 <div class="status__text">
                     <h2 class="heading-secondary u-margin-bottom-30">
                         Karol Toruń
@@ -23,10 +23,10 @@ export class StatusComponent extends HTMLElement {
   connectedCallback() {
     this.innerHTML = this.template;
 
-    var endDate = new Date();
-    var startDate = new Date(1994, 3, 4);
+    const endDate = new Date();
+    const startDate = new Date(1994, 3, 4);
 
-    var lvlYears = endDate.getYear() - startDate.getYear();
+    const lvlYears = endDate.getYear() - startDate.getYear();
 
     this.querySelector("#level").innerHTML = `${lvlYears}`;
   }

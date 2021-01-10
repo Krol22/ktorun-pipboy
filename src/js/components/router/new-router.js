@@ -36,7 +36,6 @@ export const Router = {
   },
 
   setNewContent: function (path) {
-    console.log(path);
     this.element.innerHTML = this.routes[path].text;
 
     this.routerLinks.forEach((routeLink) => {
@@ -82,9 +81,6 @@ function findRoute(path) {
 
     return true;
   });
-
-  console.log("test123");
-  console.log(match, parameters);
 
   return {
     path: match,

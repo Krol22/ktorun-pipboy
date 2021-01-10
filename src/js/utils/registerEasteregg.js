@@ -21,6 +21,7 @@ export default function registerEasterEgg() {
 
   window.addEventListener("keydown", (e) => {
     if (pattern.indexOf(e.key.toLowerCase()) >= 0) {
+      e.preventDefault();
       events.push(e.key.toLowerCase());
 
       if (

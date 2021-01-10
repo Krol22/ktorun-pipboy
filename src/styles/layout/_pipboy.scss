@@ -19,6 +19,15 @@
   animation: turnOn 0.2s;
 }
 
+.main-container {
+  height: 100%;
+  position: relative;
+}
+
+html, body {
+  height: 100%;
+}
+
 @keyframes turnOn {
   0% {
     transform: translateY(-40vh);

@@ -35,18 +35,24 @@ export class HeaderComponent extends HTMLElement {
     };
 
     this._calculateDates();
+
+    setTimeout(() => {
+      if (window.pageYOffset || document.documentElement.scrollTop) {
+        window.scrollTo(0, 0);
+      }
+    }, 300);
   }
 
   _calculateDates() {
-    var oneDay = 24 * 60 * 60 * 1000;
-    var startWorkDate = new Date(2016, 7, 1);
-    var startLvlDate = new Date(1994, 3, 4);
-    var endDate = new Date();
+    const oneDay = 24 * 60 * 60 * 1000;
+    const startWorkDate = new Date(2016, 7, 1);
+    const startLvlDate = new Date(1994, 3, 4);
+    const endDate = new Date();
 
-    var workDaysExp = Math.round(
+    const workDaysExp = Math.round(
       (endDate.getTime() - startWorkDate.getTime()) / oneDay
     );
-    var lvlYears = endDate.getYear() - startLvlDate.getYear();
+    const lvlYears = endDate.getYear() - startLvlDate.getYear();
 
     this.elements.xpValue.innerHTML = `${workDaysExp} days`;
     this.elements.lvlValue.innerHTML = `${lvlYears}`;
