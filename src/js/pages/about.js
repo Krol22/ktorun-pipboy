@@ -5,7 +5,7 @@ export class AboutComponent extends HTMLElement {
             <section class="about">
                 <h2 class="heading-secondary u-margin-top u-center-element"> About me </h2>
                 <p class="paragraph">
-                    Hello my name is Karol and I'm software developer working at <a href="https://brainhub.eu/" target="_blank">Brainhub</a>.
+                    Hello my name is Karol and I'm software developer working at <a href="https://brevy.com/" target="_blank">Brevy</a>.
                     Usually I spend my time on coding applications, websites or games with JavaScript technologies.
                 </p>
                 <p class="paragraph">
