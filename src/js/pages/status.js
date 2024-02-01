@@ -12,8 +12,7 @@ export class StatusComponent extends HTMLElement {
                         Karol Toruń
                     </h2>
                     <h3 class="heading-tertiary">
-                        Level <span id="level"></span> Fullstack JS developer at 
-                        <a class="link" target="_blank" href="https://brevy.com"> Brevy </a>
+                        Level <span id="level"></span> Senior Fullstack TS developer at Brevy.
                     </h3>
                 </div>
             </section>

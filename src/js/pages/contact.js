@@ -4,12 +4,10 @@ export class ContactComponent extends HTMLElement {
     this.template = `
             <section class="contact">
                 <h2 class="heading-secondary u-margin-top"> Contact Me </h2>
-                <p class="contact__text"> Please feel free to contact me if you have any questions at: <em class="u-itallic-text">krol22ee@gmail.com</em>. You can also find me on: 
-                    <a class="link" href="https://github.com/Krol22" target="blank"><em>Github</em></a>,
-                    <a class="link" href="https://www.linkedin.com/in/karol-toru%C5%84-123503121/" target="blank"><em>LinkedIn</em></a> or 
-                    <a class="link" href="https://twitter.com/krol22ee" target="blank"><em>Twitter</em></a>.
+      <p class="contact__text"> Please feel free to contact me if you have any questions at: <a class="link" href="mailto:karolt@protonmail.com">karolt@protonmail.com</a>. You can also find me on: 
+                    <a class="link" href="https://github.com/Krol22" target="blank"><em>Github</em></a> or
+                    <a class="link" href="https://www.linkedin.com/in/karol-toru%C5%84-123503121/" target="blank"><em>LinkedIn</em></a>.
                 </p>
-                <div id="send-mail-button" class="btn btn--bordered">Send mail</div>
             </section>
         `;
   }

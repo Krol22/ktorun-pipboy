@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   position: relative;
-  height: $section-height;
+  flex: 1;
 
   &__list {
     position: relative;
@@ -46,7 +46,7 @@
   }
 
   &__icon {
-    height: 60%;
+    height: 70%;
     text-align: center;
     padding: 2rem;
   }

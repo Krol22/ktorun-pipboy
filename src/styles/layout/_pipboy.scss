@@ -5,8 +5,15 @@
   background-color: $color-black;
   margin-top: 5rem;
   opacity: 0;
-  transition: transform calc(var(--loading-speed) * 2s) linear;
+  transition: 
+    transform calc(var(--loading-speed) * 2s) linear;
+
   overflow: hidden;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: var(--pipboy-height);
 }
 
 .pipboy--transition {

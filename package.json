@@ -9,7 +9,7 @@
     "lint": "eslint src/**/**.js"
   },
   "author": "Karol Toruń",
-  "license": "ISC",
+  "license": "mit",
   "devDependencies": {
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.10",

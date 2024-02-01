@@ -6,11 +6,11 @@ export class UsesComponent extends HTMLElement {
     this.template = `
             <section class="uses">
                 <ul class="uses__list u-scroll-container">
-                    <li class="uses__list-item" data-item="terminal">ITerm2</li>
-                    <li class="uses__list-item" data-item="editor">Vim (neovim)</li>
-                    <li class="uses__list-item" data-item="macbook">Macbook Pro 15</li>
-                    <li class="uses__list-item" data-item="keyboard">Old keyboard</li>
-                    <li class="uses__list-item" data-item="monitor">LG 4K monitor</li>
+                    <li class="uses__list-item" data-item="terminal">Weztern</li>
+                    <li class="uses__list-item" data-item="editor">Neovim</li>
+                    <li class="uses__list-item" data-item="macbook">Macbook Pro 22</li>
+                    <li class="uses__list-item" data-item="keyboard">Keychron K2 C1H</li>
+                    <li class="uses__list-item" data-item="monitor">2x LG 4K monitors</li>
                 </ul>
                 <div class="uses__items" data-item="items">
                     <div class="uses__item" data-item="terminal">
@@ -27,7 +27,7 @@ export class UsesComponent extends HTMLElement {
                                 <div class="uses__weight--value">37.1MB</div>
                             </div>
                             <div class="uses__text u-right-top-to-bottom">
-                                MODS default shell ZSH,<br />
+          MODS: TMUX, FSH <br />
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ export class UsesComponent extends HTMLElement {
                             </div>
                             <div class="uses__text u-right-top-to-bottom">
                                 LOOK LIKE HACKER +9,<br />
-                                MODS - TOO MANY, check <a class="link" href="https://github.com/Krol22/yadf/tree/master/nvim" target="blank">here</a>,
+                                MODS - TOO MANY, check <a class="link" href="https://github.com/Krol22/nvim-config" target="blank">here</a>,
                             </div>
                         </div>
                     </div>
@@ -83,9 +83,8 @@ export class UsesComponent extends HTMLElement {
                                 <div class="uses__weight--value">0.48KG</div>
                             </div>
                             <div class="uses__text u-right-top-to-bottom">
-                                SPEED +2,<br />
-                                MODS PS2 to USB adapter,<br />
-                                MODS DIN5 to PS2 converter,<br />
+                                SPEED +4,<br />
+                                MECHANICAL,<br />
                             </div>
                         </div>
                     </div>

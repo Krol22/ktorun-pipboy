@@ -1,5 +1,3 @@
-// COLORS
-
 $color-white: #fff;
 $color-black: rgb(53, 53, 53);
 
@@ -8,11 +6,12 @@ $color-tan: #ffb641;
 $color-green: #1bff80;
 $color-light-blue: #c0ffff;
 
-// OTHER
-
-$section-height: 60rem;
+$section-height-l: 80rem;
+$section-height-m: 60rem;
 $border-width: 0.3rem;
+
 
 :root {
   --loading-speed: 1;
+  --pipboy-height: 120rem;
 }

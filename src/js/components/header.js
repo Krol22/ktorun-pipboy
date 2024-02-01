@@ -20,7 +20,7 @@ export class HeaderComponent extends HTMLElement {
                     </li>
                     <li class="header-list__item header-list__item--xp u-right-top-to-bottom">
                         <span class="header-list__text">XP</span>
-                        <span id="xp-value" class="header-list__value">100 days</span>
+                        <span id="xp-value" class="header-list__value">2 years</span>
                     </li>
                 </ul>
             </header>
@@ -44,17 +44,15 @@ export class HeaderComponent extends HTMLElement {
   }
 
   _calculateDates() {
-    const oneDay = 24 * 60 * 60 * 1000;
+    const oneYear = 24 * 60 * 60 * 1000 * 366;
     const startWorkDate = new Date(2016, 7, 1);
     const startLvlDate = new Date(1994, 3, 4);
     const endDate = new Date();
 
-    const workDaysExp = Math.round(
-      (endDate.getTime() - startWorkDate.getTime()) / oneDay
-    );
+    const workDaysExp = Math.round(((endDate.getTime() - startWorkDate.getTime()) / oneYear) * 10) / 10;
     const lvlYears = endDate.getYear() - startLvlDate.getYear();
 
-    this.elements.xpValue.innerHTML = `${workDaysExp} days`;
+    this.elements.xpValue.innerHTML = `${workDaysExp} years`;
     this.elements.lvlValue.innerHTML = `${lvlYears}`;
   }
 }

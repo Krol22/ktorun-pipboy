@@ -2,7 +2,7 @@ export const Router = {
   init: function (routes) {
     this.routes = routes ? routes : [];
     this.routerLinks = [...document.getElementsByTagName("router-link")];
-    this.element = document.getElementsByTagName("router")[0];
+    this.prevElement = document.getElementById("pre-router");
 
     this.goTo(window.location.pathname);
 
@@ -35,8 +35,15 @@ export const Router = {
     this.setNewContent(path);
   },
 
-  setNewContent: function (path) {
-    this.element.innerHTML = this.routes[path].text;
+  setNewContent: async function (path) {
+    const currentPage = document.querySelector("[data-current-page='true']");
+
+    if (currentPage !== null) {
+      currentPage.remove();
+    }
+
+    this.prevElement.insertAdjacentHTML("afterend", this.routes[path].text);
+    this.prevElement.nextElementSibling.dataset.currentPage = "true";
 
     this.routerLinks.forEach((routeLink) => {
       routeLink.dataset.active = false;
